@@ -3,6 +3,10 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {loadDefaultCurrentWeather} from 'Redux/CurrentWeatherSlice';
 
+
+/**
+ * Компонент отображения текущей погоды.
+ */
 export const CurrentWeather: React.FC = () => {
     const dispatch = useAppDispatch();
     const {current, location} = useAppSelector(state => state.current.currentWeather)

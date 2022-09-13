@@ -36,6 +36,9 @@ type ICurrentWeather = {
     location: any
 }
 
+/**
+ * Срез текущей погоды.
+ */
 const CurrentWeatherSlice = createSlice({
     name: 'current',
     initialState: {

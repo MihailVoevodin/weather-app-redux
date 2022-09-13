@@ -5,6 +5,9 @@ import {useAppDispatch} from 'hooks';
 
 const { Search } = Input;
 
+/**
+ * Компонент поиска погоды.
+ */
 export const SearchPanel: React.FC = () => {
     const dispatch = useAppDispatch();
 
