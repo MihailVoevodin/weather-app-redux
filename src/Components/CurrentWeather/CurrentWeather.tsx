@@ -12,6 +12,12 @@ export const CurrentWeather: React.FC = () => {
     const {current, location} = useAppSelector(state => state.current.currentWeather)
     const isLoading = useAppSelector(state => state.current.isLoading)
 
+    // if (!isLoading) {
+    //     const currentDate = new Date(location.localtime_epoch);
+    //     const newCurrentDate = currentDate.toDateString();
+    // };
+
+
     useEffect(() => {
         dispatch(loadDefaultCurrentWeather())
     }, [dispatch])
@@ -21,8 +27,18 @@ export const CurrentWeather: React.FC = () => {
         {isLoading
             ? <Spinner/>
             : <div>
-            <span>{location.name}</span>
-            <img src={current.condition.icon} alt='icon'/>
+                <div>{location.localtime}</div>
+                <span>{location.name}, {location.country}</span>
+                <div>
+                    <img src={current.condition.icon} alt='icon'/>
+                    <span>{current.condition.text.toLowerCase()}</span>
+                </div>
+                <div>
+                    {current.temp_c}
+                    <span>
+                        {current.feelslike_c}
+                    </span>
+                </div>
             </div>
         }
         </>
