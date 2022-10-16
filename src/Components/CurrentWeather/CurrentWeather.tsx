@@ -2,7 +2,7 @@ import Spinner from 'Common/Components/Spinner';
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {loadDefaultCurrentWeather} from 'Redux/CurrentWeatherSlice';
-
+import 'Components/CurrentWeather/CurrentWeather.css';
 
 /**
  * Компонент отображения текущей погоды.
@@ -28,9 +28,9 @@ export const CurrentWeather: React.FC = () => {
             ? <Spinner/>
             : <div>
                 <div>{location.localtime}</div>
-                <span>{location.name}, {location.country}</span>
+                <span className='nameCountry'>{location.name}, {location.country}</span>
                 <div>
-                    <img src={current.condition.icon} alt='icon'/>
+                    <img src={current.condition.icon} alt='condition icon'/>
                     <span>{current.condition.text.toLowerCase()}</span>
                 </div>
                 <div>
