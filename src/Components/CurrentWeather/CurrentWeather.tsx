@@ -2,8 +2,8 @@ import Spinner from 'Common/Components/Spinner';
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {loadDefaultCurrentWeather} from 'Redux/CurrentWeatherSlice';
-import 'Components/CurrentWeather/CurrentWeather.css';
-
+import styles from 'Components/CurrentWeather/CurrentWeather.module.css';
+const moment = require('moment');
 /**
  * Компонент отображения текущей погоды.
  */
@@ -11,12 +11,6 @@ export const CurrentWeather: React.FC = () => {
     const dispatch = useAppDispatch();
     const {current, location} = useAppSelector(state => state.current.currentWeather)
     const isLoading = useAppSelector(state => state.current.isLoading)
-
-    // if (!isLoading) {
-    //     const currentDate = new Date(location.localtime_epoch);
-    //     const newCurrentDate = currentDate.toDateString();
-    // };
-
 
     useEffect(() => {
         dispatch(loadDefaultCurrentWeather())
@@ -27,17 +21,18 @@ export const CurrentWeather: React.FC = () => {
         {isLoading
             ? <Spinner/>
             : <div>
-                <div>{location.localtime}</div>
-                <span className='nameCountry'>{location.name}, {location.country}</span>
+                <span className={styles.locationCity}>{location.name}, {location.country}</span>
+                <div>{moment(location.localtime).format('ddd HH:mm - DD MMM')}</div>
                 <div>
-                    <img src={current.condition.icon} alt='condition icon'/>
-                    <span>{current.condition.text.toLowerCase()}</span>
-                </div>
-                <div>
-                    {current.temp_c}
-                    <span>
-                        {current.feelslike_c}
-                    </span>
+                    <div className={styles.temp}>
+                        {current.temp_c} ℃
+                        <span className={styles.tempFeelsLike}>feels like {current.feelslike_c} ℃</span>
+                    </div>
+                    <div className={styles.condition}>
+                        <img src={current.condition.icon} alt='condition icon'/>
+                        <span>{current.condition.text.toLowerCase()}</span>
+                    </div>
+
                 </div>
             </div>
         }

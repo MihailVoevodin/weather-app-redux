@@ -1,0 +1,21 @@
+.locationCity {
+  font-size: 32px;
+}
+.temp {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.tempFeelsLike {
+  font-size: 14px;
+  font-weight: normal;
+  display: block;
+}
+.condition {
+  text-align: center;
+}
+
+.condition img {
+  width: 60px;
+  height: 60px;
+}
