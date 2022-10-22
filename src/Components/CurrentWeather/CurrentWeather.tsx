@@ -26,7 +26,7 @@ export const CurrentWeather: React.FC = () => {
                 <div>
                     <div className={styles.temp}>
                         {current.temp_c} ℃
-                        <span className={styles.tempFeelsLike}>feels like {current.feelslike_c} ℃</span>
+                        <span className={styles.tempFeelsLike}>feels like {Math.round(current.feelslike_c)} ℃</span>
                     </div>
                     <div className={styles.condition}>
                         <img src={current.condition.icon} alt='condition icon'/>

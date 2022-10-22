@@ -7,11 +7,11 @@ import {CurrentWeather} from 'Components/CurrentWeather/CurrentWeather';
 function App() {
   return (
     <div className="App">
-        <div>
-            <SearchPanel/>
+        <SearchPanel/>
+        <div className="CurrentWeather">
             <CurrentWeather/>
+            <WeatherDetails/>
         </div>
-        <WeatherDetails/>
     </div>
   );
 }

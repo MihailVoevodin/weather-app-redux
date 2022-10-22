@@ -1,4 +1,17 @@
 .details {
-    background-color: red;
-    width: 200px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.detailsItem {
+    padding-top: 10px;
+}
+
+.details span {
+    display: block;
+    line-height: 1;
+    font-size: 30px;
 }
