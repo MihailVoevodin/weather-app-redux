@@ -13,7 +13,7 @@ export const CurrentWeather: React.FC = () => {
     const isLoading = useAppSelector(state => state.current.isLoading)
 
     useEffect(() => {
-        dispatch(loadDefaultCurrentWeather())
+        dispatch(loadDefaultCurrentWeather()) //TODO: поменять в апишке возвращаемые поля
     }, [dispatch])
 
     return (
