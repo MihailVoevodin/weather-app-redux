@@ -12,6 +12,8 @@ function App() {
         <div className="CurrentWeather">
             <CurrentWeather/>
             <WeatherDetails/>
+        </div>
+        <div className="ForecastWeather">
             <ForecastWeather/>
         </div>
     </div>
