@@ -35,11 +35,12 @@ export const ForecastWeather: React.FC = () => {
     return (
         <div className={styles.forecast}>
             {forecastWeather.map((dayWeather: IForecastWeather) => (
-                <div>
+                <div className={styles.dayWeather}>
                     <div className={styles.date}>{moment(dayWeather.date).format('ddd DD')}</div>
 
                     <div>
                         <img className={styles.icon} src={dayWeather.day.condition.icon} alt='condition icon'/>
+                        <div className={styles.text}>{dayWeather.day.condition.text}</div>
                     </div>
                     <div className={styles.temp}>
                         <span className={styles.maxtemp}>{dayWeather.day.maxtemp_c}</span>

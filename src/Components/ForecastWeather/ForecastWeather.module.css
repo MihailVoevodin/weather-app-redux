@@ -1,4 +1,41 @@
 .forecast {
+    margin: 40px 0;
     display: flex;
     justify-content: center;
+}
+
+.dayWeather {
+    margin: 0 20px;
+    padding: 10px 15px;
+    width: 220px;
+    border-radius: 30px;
+    font-size: 24px;
+    transition: 1s;
+}
+
+.date {
+    line-height: 24px;
+}
+
+.dayWeather:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 14px;
+}
+
+.temp {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.mintemp {
+    padding-left: 10px;
+    font-size: 18px;
 }

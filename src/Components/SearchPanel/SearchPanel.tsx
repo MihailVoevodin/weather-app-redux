@@ -18,7 +18,7 @@ export const SearchPanel: React.FC = () => {
     return (
         <>
             <h1 style={{color: 'white'}}>Enter city</h1>
-            <Search style={{width: 400}} placeholder="input search text" onSearch={onSearch} enterButton />
+            <Search style={{width: 400}} placeholder="input city" onSearch={onSearch} enterButton />
         </>
     )
 }
