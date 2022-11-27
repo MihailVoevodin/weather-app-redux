@@ -1,7 +1,6 @@
 .forecast {
-    margin: 40px 0;
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
+    width: 844px;
 }
 
 .dayWeather {
