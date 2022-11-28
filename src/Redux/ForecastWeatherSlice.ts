@@ -14,6 +14,18 @@ export const loadForecastWeather = createAsyncThunk(
     }
 );
 
+interface IForecastState {
+    forecastWeather: IForecast[];
+}
+
+interface IForecast {
+    hour: IHourForecast[];
+}
+
+interface IHourForecast {
+    temp_c: number;
+}
+
 /**
  * Срез прогноза погоды.
  */
@@ -23,7 +35,7 @@ const ForecastWeatherSlice = createSlice({
         forecastWeather: [],
     },
     reducers: {
-        setForecastWeather(state, action) {
+        setForecastWeather(state: IForecastState, action) {
             console.log(action)
             state.forecastWeather = action.payload
         },
