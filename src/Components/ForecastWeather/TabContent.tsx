@@ -1,9 +1,10 @@
 import styles from 'Components/ForecastWeather/ForecastWeather.module.css';
 import moment from 'moment';
 import React from 'react';
+import {IHourForecast} from 'Redux/ForecastWeatherSlice';
 
 interface IProps {
-    hourWeather: Array<ITabContent>;
+    hourWeather: IHourForecast[];
 }
 
 interface ITabContent {
@@ -15,7 +16,7 @@ const TabContent: React.FC<IProps> = ({hourWeather}): any => {
 
 
     return (
-        <div>
+        <div className={styles.TabContent}>
             {hourWeather.map((hour: ITabContent, index) => (
                 <div key={index}>
                     <div className={styles.date}>{moment(hour.time).format('LT')}</div>

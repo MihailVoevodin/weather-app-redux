@@ -5,7 +5,7 @@ import {SearchPanel} from 'Components/SearchPanel/SearchPanel';
 import {CurrentWeather} from 'Components/CurrentWeather/CurrentWeather';
 import {ForecastWeather} from 'Components/ForecastWeather/ForecastWeather';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
         <SearchPanel/>

@@ -1,25 +1,10 @@
 import styles from 'Components/ForecastWeather/ForecastWeather.module.css';
 import moment from 'moment';
 import React from 'react';
+import {IForecast} from 'Redux/ForecastWeatherSlice';
 
 interface IProps {
-    dayWeather: IForecastWeather;
-}
-
-interface IForecastWeather {
-    date: string;
-    day: IForecastWeatherDay;
-}
-
-interface IForecastWeatherDay {
-    maxtemp_c: number;
-    mintemp_c: number;
-    condition: IForecastWeatherDayCondition;
-}
-
-interface IForecastWeatherDayCondition {
-    text: string;
-    icon: string;
+    dayWeather: IForecast;
 }
 
 const TabTitle: React.FC<IProps> = ({dayWeather}) => {

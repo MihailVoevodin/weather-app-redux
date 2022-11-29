@@ -14,15 +14,33 @@ export const loadForecastWeather = createAsyncThunk(
     }
 );
 
-interface IForecastState {
+export interface IForecastState {
     forecastWeather: IForecast[];
 }
 
-interface IForecast {
+const initialState: IForecastState = {
+    forecastWeather: [],
+};
+
+export interface IForecast {
+    date: string;
+    day: IForecastWeatherDay;
     hour: IHourForecast[];
 }
 
-interface IHourForecast {
+interface IForecastWeatherDay {
+    maxtemp_c: number;
+    mintemp_c: number;
+    condition: IForecastWeatherDayCondition;
+}
+
+interface IForecastWeatherDayCondition {
+    text: string;
+    icon: string;
+}
+
+export interface IHourForecast {
+    time: string;
     temp_c: number;
 }
 
@@ -31,11 +49,9 @@ interface IHourForecast {
  */
 const ForecastWeatherSlice = createSlice({
     name: 'forecast',
-    initialState: {
-        forecastWeather: [],
-    },
+    initialState: initialState,
     reducers: {
-        setForecastWeather(state: IForecastState, action) {
+        setForecastWeather(state, action) {
             console.log(action)
             state.forecastWeather = action.payload
         },

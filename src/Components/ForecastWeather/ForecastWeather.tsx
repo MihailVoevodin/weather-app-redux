@@ -22,9 +22,9 @@ export const ForecastWeather: React.FC = () => {
     }, [dispatch])
 
     return (
-        <>
+        <div className={styles.forecast}>
         {forecastWeather.length !== 0 ?
-            <Tabs className={styles.forecast}>
+            <Tabs style={{color: 'white'}}>
                 <TabPane tab={<TabTitle dayWeather={forecastWeather[0]} />} key={1}>
                     <TabContent hourWeather={forecastWeather[0].hour} />
                 </TabPane>
@@ -36,6 +36,6 @@ export const ForecastWeather: React.FC = () => {
                 </TabPane>
             </Tabs> : <div>11</div>
         }
-        </>
+        </div>
     )
 };
