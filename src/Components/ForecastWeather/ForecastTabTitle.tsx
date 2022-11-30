@@ -7,8 +7,11 @@ interface IProps {
     dayWeather: IForecast;
 }
 
-const TabTitle: React.FC<IProps> = ({dayWeather}) => {
 
+/**
+ * Компонент отображения тайтлов табов прогноза погоды.
+ */
+const ForecastTabTitle: React.FC<IProps> = ({dayWeather}) => {
 
     return (
         <div className={styles.dayWeather}>
@@ -19,11 +22,11 @@ const TabTitle: React.FC<IProps> = ({dayWeather}) => {
                 <div className={styles.text}>{dayWeather.day.condition.text}</div>
             </div>
             <div className={styles.temp}>
-                <span className={styles.maxtemp}>{dayWeather.day.maxtemp_c}</span>
-                <span className={styles.mintemp}>{dayWeather.day.mintemp_c}</span>
+                <span className={styles.maxtemp}>{dayWeather.day.maxtemp_c}°</span>
+                <span className={styles.mintemp}>{dayWeather.day.mintemp_c}°</span>
             </div>
         </div>
     )
 }
 
-export {TabTitle};
+export {ForecastTabTitle};

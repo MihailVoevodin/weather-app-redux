@@ -52,7 +52,6 @@ const ForecastWeatherSlice = createSlice({
     initialState: initialState,
     reducers: {
         setForecastWeather(state, action) {
-            console.log(action)
             state.forecastWeather = action.payload
         },
     }

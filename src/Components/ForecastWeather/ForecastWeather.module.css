@@ -3,10 +3,15 @@
     margin: 0 auto;
 }
 
-.TabContent {
+.tabContent {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.tabContentItem {
+    width: 80px;
+    margin: 15px;
 }
 
 .dayWeather {

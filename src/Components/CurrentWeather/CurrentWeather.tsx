@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from 'hooks';
 import {loadDefaultCurrentWeather} from 'Redux/CurrentWeatherSlice';
 import styles from 'Components/CurrentWeather/CurrentWeather.module.css';
 const moment = require('moment');
+
 /**
  * Компонент отображения текущей погоды.
  */
