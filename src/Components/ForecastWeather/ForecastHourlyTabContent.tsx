@@ -7,19 +7,14 @@ interface IProps {
     hourWeather: IHourForecast[];
 }
 
-interface IHourForecastTabContent {
-    time: string;
-    temp_c: number;
-}
-
 /**
  * Компонент отображения почасового прогноза погоды.
  */
-const ForecastHourTabContent: React.FC<IProps> = ({hourWeather}): any => {
+const ForecastHourlyTabContent: React.FC<IProps> = ({hourWeather}): any => {
 
     return (
         <div className={styles.tabContent}>
-            {hourWeather.map((hour: IHourForecastTabContent, index) => (
+            {hourWeather.map((hour: IHourForecast, index) => (
                 <div className={styles.tabContentItem} key={index}>
                     <div className={styles.date}>{moment(hour.time).format('LT')}</div>
                     <div className={styles.temp}>
@@ -31,4 +26,4 @@ const ForecastHourTabContent: React.FC<IProps> = ({hourWeather}): any => {
     )
 }
 
-export {ForecastHourTabContent};
+export {ForecastHourlyTabContent};
