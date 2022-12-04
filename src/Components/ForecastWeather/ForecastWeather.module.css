@@ -48,3 +48,15 @@
     padding-left: 10px;
     font-size: 18px;
 }
+
+.collapse {
+    color: white;
+}
+
+:global .ant-collapse-content {
+    background-color: transparent;
+}
+.slick-arrow .slick-next {
+    color: white;
+}
+

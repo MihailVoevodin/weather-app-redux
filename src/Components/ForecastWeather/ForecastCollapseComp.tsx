@@ -1,9 +1,11 @@
 import React from 'react';
 import {Collapse} from 'antd';
+import styles from 'Components/ForecastWeather/ForecastWeather.module.css';
 import {ForecastDetailsTabContent} from 'Components/ForecastWeather/ForecastDetailsTabContent';
 import {ForecastAstroTabContent} from 'Components/ForecastWeather/ForecastAstroTabContent';
 import {ForecastHourlyTabContent} from 'Components/ForecastWeather/ForecastHourlyTabContent';
 import {IForecast} from 'Redux/ForecastWeatherSlice';
+
 const { Panel } = Collapse;
 
 interface IProps {
@@ -17,7 +19,7 @@ interface IProps {
 const ForecastCollapseComp: React.FC<IProps> = ({forecastDay}) => {
 
     return (
-        <Collapse>
+        <Collapse className={styles.collapse} style={{backgroundColor: 'transparent'}}>
             <Panel header="Details" key="1">
                 <ForecastDetailsTabContent detailsWeather={forecastDay.day} />
             </Panel>
