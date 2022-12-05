@@ -12,12 +12,12 @@ interface IProps {
 const ForecastDetailsTabContent: React.FC<IProps> = ({detailsWeather}): any => {
     //TODO: сделать хелпер на вывод либо дождя либо снега
     return (
-        <div className={styles.astroTabContent}>
-            <div>Average temperature: {detailsWeather.avgtemp_c}</div>
-            <div>Maximum wind speed:  {detailsWeather.maxwind_mph}</div>
-            <div>Total precipitation:  {detailsWeather.totalprecip_mm}</div>
-            <div>Average visibility:  {detailsWeather.avgvis_km}</div>
-            <div>Daily chance of rain:  {detailsWeather.daily_chance_of_rain}</div>
+        <div className={styles.detailsTabContent} style={{color: 'white'}}>
+            <div>Average temperature<span>{detailsWeather.avgtemp_c}°</span></div>
+            <div>Maximum wind speed<span>{detailsWeather.maxwind_mph} mph</span></div>
+            <div>Total precipitation<span>{detailsWeather.totalprecip_mm} mm</span></div>
+            <div>Average visibility<span>{detailsWeather.avgvis_km} km</span></div>
+            <div>Daily chance of rain<span>{detailsWeather.daily_chance_of_rain} %</span></div>
         </div>
     )
 }

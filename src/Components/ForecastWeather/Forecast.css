@@ -1,0 +1,42 @@
+.ant-collapse-header {
+    color: white !important;
+    font-size: 20px;
+}
+
+.slick-arrow.slick-prev {
+    font-size: 10px;
+
+}
+.ant-carousel .slick-prev::before {
+    content: '<' !important;
+    position: relative;
+    bottom: 20px;
+    right: 3px;
+    font-size: 25px;
+    color: white;
+    transform: translateY(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 33px;
+    height: 33px;
+
+}
+.slick-arrow.slick-next {
+    font-size: 10px;
+}
+.ant-carousel .slick-next::before {
+    content: '>' !important;
+    position: relative;
+    right: 3px;
+    bottom: 20px;
+    font-size: 25px;
+    color: white;
+    transform: translateY(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33px;
+    height: 33px;
+}

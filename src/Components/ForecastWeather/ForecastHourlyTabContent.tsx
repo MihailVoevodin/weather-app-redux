@@ -3,6 +3,7 @@ import moment from 'moment';
 import React from 'react';
 import {IHourForecast} from 'Redux/ForecastWeatherSlice';
 import { Carousel } from 'antd';
+import 'Components/ForecastWeather/Forecast.css';
 
 interface IProps {
     hourWeather: IHourForecast[];
@@ -17,7 +18,7 @@ const ForecastHourlyTabContent: React.FC<IProps> = ({hourWeather}): any => {
         <Carousel arrows={true}
                   className={styles.tabContent}
                   dots={false}
-                  style={{color: 'white', backgroundColor: 'transparent'}}
+                  style={{color: 'white'}}
                   slidesToShow={6}
                   slidesToScroll={6}>
             {hourWeather.map((hour: IHourForecast, index) => (

@@ -10,6 +10,7 @@
 }
 
 .tabContentItem {
+    text-align: center;
     width: 80px;
     margin: 15px;
 }
@@ -32,9 +33,6 @@
 }
 
 .text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 50px;
     font-size: 14px;
 }
@@ -49,14 +47,23 @@
     font-size: 18px;
 }
 
-.collapse {
-    color: white;
+.detailsTabContent {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
 }
 
-:global .ant-collapse-content {
-    background-color: transparent;
-}
-.slick-arrow .slick-next {
-    color: white;
+.detailsTabContent span,
+.astroTabContent span {
+    display: block;
 }
 
+.astroTabContent {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+.tabContentItem {
+    width: 93px !important;
+}

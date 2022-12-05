@@ -12,9 +12,9 @@ interface IProps {
 const ForecastAstroTabContent: React.FC<IProps> = ({astroWeather}): any => {
 
     return (
-        <div className={styles.astroTabContent} style={{backgroundColor: 'transparent'}}>
-            <div>Sunrise: {astroWeather.sunrise}</div>
-            <div>Sunset:  {astroWeather.sunset}</div>
+        <div className={styles.astroTabContent}  style={{color: 'white'}}>
+            <div>Sunrise<span>{astroWeather.sunrise}</span></div>
+            <div>Sunset<span>{astroWeather.sunset}</span></div>
         </div>
     )
 }
