@@ -1,6 +1,6 @@
 import React from 'react';
 import {useAppSelector} from 'hooks';
-import styles from 'Components/WeatherDetails/WeatherDetails.module.css';
+import styles from 'Components/WeatherDetails/Styles/WeatherDetails.module.css';
 
 /**
  * Компонент отображения текущей погоды.

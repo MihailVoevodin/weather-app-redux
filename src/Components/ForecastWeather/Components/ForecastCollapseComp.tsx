@@ -1,11 +1,11 @@
 import React from 'react';
 import {Collapse} from 'antd';
-import styles from 'Components/ForecastWeather/ForecastWeather.module.css';
-import {ForecastDetailsTabContent} from 'Components/ForecastWeather/ForecastDetailsTabContent';
-import {ForecastAstroTabContent} from 'Components/ForecastWeather/ForecastAstroTabContent';
-import {ForecastHourlyTabContent} from 'Components/ForecastWeather/ForecastHourlyTabContent';
+import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
+import {ForecastDetailsTabContent} from 'Components/ForecastWeather/Components/ForecastDetailsTabContent';
+import {ForecastAstroTabContent} from 'Components/ForecastWeather/Components/ForecastAstroTabContent';
+import {ForecastHourlyTabContent} from 'Components/ForecastWeather/Components/ForecastHourlyTabContent';
 import {IForecast} from 'Redux/ForecastWeatherSlice';
-import 'Components/ForecastWeather/Forecast.css';
+import 'Components/ForecastWeather/Styles/Forecast.css';
 
 const { Panel } = Collapse;
 

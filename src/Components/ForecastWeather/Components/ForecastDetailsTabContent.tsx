@@ -1,4 +1,4 @@
-import styles from 'Components/ForecastWeather/ForecastWeather.module.css';
+import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import React from 'react';
 import {IDetailsForecast} from 'Redux/ForecastWeatherSlice';
 

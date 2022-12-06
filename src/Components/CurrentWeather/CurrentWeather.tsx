@@ -2,7 +2,7 @@ import Spinner from 'Common/Components/Spinner';
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {loadDefaultCurrentWeather} from 'Redux/CurrentWeatherSlice';
-import styles from 'Components/CurrentWeather/CurrentWeather.module.css';
+import styles from 'Components/CurrentWeather/Styles/CurrentWeather.module.css';
 const moment = require('moment');
 
 /**

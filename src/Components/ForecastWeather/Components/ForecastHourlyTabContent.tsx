@@ -1,9 +1,9 @@
-import styles from 'Components/ForecastWeather/ForecastWeather.module.css';
+import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import moment from 'moment';
 import React from 'react';
 import {IHourForecast} from 'Redux/ForecastWeatherSlice';
 import { Carousel } from 'antd';
-import 'Components/ForecastWeather/Forecast.css';
+import 'Components/ForecastWeather/Styles/Forecast.css';
 
 interface IProps {
     hourWeather: IHourForecast[];
