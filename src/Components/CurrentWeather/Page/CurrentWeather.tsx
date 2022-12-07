@@ -8,7 +8,7 @@ const moment = require('moment');
 /**
  * Компонент отображения текущей погоды.
  */
-export const CurrentWeather: React.FC = () => {
+const CurrentWeather: React.FC = () => {
     const dispatch = useAppDispatch();
     const {current, location} = useAppSelector(state => state.current.currentWeather)
     const isLoading = useAppSelector(state => state.current.isLoading)
@@ -40,3 +40,5 @@ export const CurrentWeather: React.FC = () => {
         </>
     )
 }
+
+export {CurrentWeather};

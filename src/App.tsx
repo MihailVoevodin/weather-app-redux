@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import {SearchPanel} from 'Components/SearchPanel/SearchPanel';
 import {CurrentWeather} from 'Components/CurrentWeather/Page/CurrentWeather';
-import {ForecastWeather} from 'Components/ForecastWeather/ForecastWeather';
+import {ForecastWeather} from 'Components/ForecastWeather/Page/ForecastWeather';
 
 const App: React.FC = () => {
   return (

@@ -10,7 +10,6 @@ export const loadCurrentWeather = createAsyncThunk(
         if (response.status !== 200) {
             return rejectWithValue('Server Error!')
         };
-        console.log(response.data);
         dispatch(setInputValue(city));
         dispatch(setCurrentWeather(response.data));
         dispatch(toggleIsLoading());
@@ -54,7 +53,6 @@ const CurrentWeatherSlice = createSlice({
             state.inputCityValue = action.payload;
         },
         setCurrentWeather(state, action) {
-            console.log(action);
             state.currentWeather = action.payload;
         },
         toggleIsLoading(state) {

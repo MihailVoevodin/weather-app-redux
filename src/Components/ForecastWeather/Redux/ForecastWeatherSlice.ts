@@ -9,7 +9,6 @@ export const loadForecastWeather = createAsyncThunk(
         if (response.status !== 200) {
             return rejectWithValue('Server Error!')
         }
-        console.log(response.data.forecast.forecastday)
         dispatch(setForecastWeather(response.data.forecast.forecastday))
         return;
     }
