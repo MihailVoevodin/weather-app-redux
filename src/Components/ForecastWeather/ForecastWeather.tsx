@@ -2,7 +2,7 @@ import {Tabs} from 'antd';
 import {ForecastTabTitle} from 'Components/ForecastWeather/Components/ForecastTabTitle';
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from 'hooks';
-import {loadForecastWeather} from 'Redux/ForecastWeatherSlice';
+import {loadForecastWeather} from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
 import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import {ForecastCollapseComp} from 'Components/ForecastWeather/Components/ForecastCollapseComp';
 

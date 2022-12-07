@@ -1,12 +1,11 @@
 import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import moment from 'moment';
 import React from 'react';
-import {IForecast} from 'Redux/ForecastWeatherSlice';
+import {IForecast} from 'Components/ForecastWeather/Models';
 
 interface IProps {
     dayWeather: IForecast;
 }
-
 
 /**
  * Компонент отображения тайтлов табов прогноза погоды.

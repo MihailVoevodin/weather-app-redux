@@ -1,6 +1,6 @@
 import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import React from 'react';
-import {IDetailsForecast} from 'Redux/ForecastWeatherSlice';
+import {IDetailsForecast} from 'Components/ForecastWeather/Models';
 
 interface IProps {
     detailsWeather: IDetailsForecast;

@@ -1,7 +1,7 @@
 import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import moment from 'moment';
 import React from 'react';
-import {IHourForecast} from 'Redux/ForecastWeatherSlice';
+import {IHourForecast} from 'Components/ForecastWeather/Models';
 import { Carousel } from 'antd';
 import 'Components/ForecastWeather/Styles/Forecast.css';
 

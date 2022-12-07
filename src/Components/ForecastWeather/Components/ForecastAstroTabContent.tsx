@@ -1,6 +1,6 @@
 import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import React from 'react';
-import {IAstroForecast} from 'Redux/ForecastWeatherSlice';
+import {IAstroForecast} from 'Components/ForecastWeather/Models';
 
 interface IProps {
     astroWeather: IAstroForecast;

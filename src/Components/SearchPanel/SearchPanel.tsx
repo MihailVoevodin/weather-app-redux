@@ -1,8 +1,8 @@
 import React from "react";
 import {Input} from 'antd';
-import {loadCurrentWeather} from 'Redux/CurrentWeatherSlice';
+import {loadCurrentWeather} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
 import {useAppDispatch} from 'hooks';
-import {loadForecastWeather} from 'Redux/ForecastWeatherSlice';
+import {loadForecastWeather} from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
 
 const { Search } = Input;
 

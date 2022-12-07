@@ -4,7 +4,7 @@ import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css
 import {ForecastDetailsTabContent} from 'Components/ForecastWeather/Components/ForecastDetailsTabContent';
 import {ForecastAstroTabContent} from 'Components/ForecastWeather/Components/ForecastAstroTabContent';
 import {ForecastHourlyTabContent} from 'Components/ForecastWeather/Components/ForecastHourlyTabContent';
-import {IForecast} from 'Redux/ForecastWeatherSlice';
+import {IForecast} from 'Components/ForecastWeather/Models';
 import 'Components/ForecastWeather/Styles/Forecast.css';
 
 const { Panel } = Collapse;
@@ -12,7 +12,6 @@ const { Panel } = Collapse;
 interface IProps {
     forecastDay: IForecast;
 }
-
 
 /**
  * Компонент отображения тайтлов табов прогноза погоды.

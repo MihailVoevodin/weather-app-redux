@@ -1,5 +1,6 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {CurrentWeatherService} from 'api/CurrentWeatherService';
+import {ICurrentWeather} from 'Components/CurrentWeather/Models';
 
 export const loadCurrentWeather = createAsyncThunk(
     'current/getCurrentWeather',
@@ -24,16 +25,22 @@ export const loadDefaultCurrentWeather = createAsyncThunk(
         if (response.status !== 200) {
             return rejectWithValue('Server Error!');
         };
-        console.log(response.data);
         dispatch(setCurrentWeather(response.data));
         dispatch(toggleIsLoading());
         return;
     }
 );
 
-type ICurrentWeather = {
-    current: any,
-    location: any,
+export interface ICurrentWeatherState {
+    inputCityValue: string,
+    currentWeather: Partial<ICurrentWeather>,
+    isLoading: boolean,
+}
+
+const initialState: ICurrentWeatherState = {
+    inputCityValue: 'Москва',
+    currentWeather: {},
+    isLoading: true,
 };
 
 /**
@@ -41,11 +48,7 @@ type ICurrentWeather = {
  */
 const CurrentWeatherSlice = createSlice({
     name: 'current',
-    initialState: {
-        inputCityValue: 'Москва',
-        currentWeather: {} as ICurrentWeather,
-        isLoading: true,
-    },
+    initialState: initialState,
     reducers: {
         setInputValue(state, action) {
             state.inputCityValue = action.payload;

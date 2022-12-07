@@ -12,10 +12,10 @@ export const WeatherDetails: React.FC = () => {
     return (
         <>
         {!isLoading && <div className={styles.details}>
-        <div className={styles.detailsItem}>Humidity<span>{current.humidity} %</span></div>
-        <div className={styles.detailsItem}>Wind<span>{current.wind_mph} mph</span></div>
-        <div className={styles.detailsItem}>Wind direction<span>{current.wind_dir}</span></div>
-        <div className={styles.detailsItem}>Pressure<span>{current.pressure_mb} hPa</span></div>
+        <div className={styles.detailsItem}>Humidity<span>{current?.humidity} %</span></div>
+        <div className={styles.detailsItem}>Wind<span>{current?.wind_mph} mph</span></div>
+        <div className={styles.detailsItem}>Wind direction<span>{current?.wind_dir}</span></div>
+        <div className={styles.detailsItem}>Pressure<span>{current?.pressure_mb} hPa</span></div>
         </div>}
         </>
     )

@@ -1,7 +1,7 @@
 import Spinner from 'Common/Components/Spinner';
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from 'hooks';
-import {loadDefaultCurrentWeather} from 'Redux/CurrentWeatherSlice';
+import {loadDefaultCurrentWeather} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
 import styles from 'Components/CurrentWeather/Styles/CurrentWeather.module.css';
 const moment = require('moment');
 
@@ -22,16 +22,16 @@ export const CurrentWeather: React.FC = () => {
         {isLoading
             ? <Spinner/>
             : <div>
-                <span className={styles.locationCity}>{location.name}, {location.country}</span>
-                <div>{moment(location.localtime).format('ddd HH:mm - DD MMM')}</div>
+                <span className={styles.locationCity}>{location?.name}, {location?.country}</span>
+                <div>{moment(location?.localtime).format('ddd HH:mm - DD MMM')}</div>
                 <div>
                     <div className={styles.temp}>
-                        {current.temp_c} ℃
-                        <span className={styles.tempFeelsLike}>feels like {Math.round(current.feelslike_c)} ℃</span>
+                        {current?.temp_c} ℃
+                        <span className={styles.tempFeelsLike}>feels like {Math.round(current?.feelslike_c as number)} ℃</span>
                     </div>
                     <div className={styles.condition}>
-                        <img src={current.condition.icon} alt='condition icon'/>
-                        <span>{current.condition.text.toLowerCase()}</span>
+                        <img src={current?.condition.icon} alt='condition icon'/>
+                        <span>{current?.condition.text.toLowerCase()}</span>
                     </div>
 
                 </div>
