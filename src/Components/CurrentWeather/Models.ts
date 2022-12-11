@@ -1,8 +1,14 @@
+/**
+ * Интефейс объекта текущей погоды.
+ */
 export interface ICurrentWeather {
     current: ICurrent,
     location: ILocation,
 };
 
+/**
+ * Интефейс объекта текущей погоды внутренний.
+ */
 interface ICurrent {
     temp_c: number,
     feelslike_c: number,
@@ -13,11 +19,17 @@ interface ICurrent {
     pressure_mb: number,
 }
 
+/**
+ * Интефейс условий текущей погоды.
+ */
 interface ICondition {
     icon: string,
     text: string,
 }
 
+/**
+ * Интефейс локации текущей погоды.
+ */
 interface ILocation {
     name: string,
     country: string,

@@ -2,6 +2,9 @@ import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css
 import React from 'react';
 import {IDetailsForecast} from 'Components/ForecastWeather/Models';
 
+/**
+ * @param forecastDay Детали прогноза погоды.
+ */
 interface IProps {
     detailsWeather: IDetailsForecast;
 }

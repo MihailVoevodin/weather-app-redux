@@ -3,6 +3,9 @@ import moment from 'moment';
 import React from 'react';
 import {IForecast} from 'Components/ForecastWeather/Models';
 
+/**
+ * @param dayWeather Основная информация таба прогноза погоды.
+ */
 interface IProps {
     dayWeather: IForecast;
 }

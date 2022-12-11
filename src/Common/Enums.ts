@@ -1,3 +1,6 @@
+/**
+ * Моделька дней.
+ */
 export enum ECurrentDay {
     TODAY,
     TOMORROW,

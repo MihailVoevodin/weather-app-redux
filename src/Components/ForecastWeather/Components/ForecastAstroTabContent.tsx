@@ -2,6 +2,9 @@ import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css
 import React from 'react';
 import {IAstroForecast} from 'Components/ForecastWeather/Models';
 
+/**
+ * @param astroWeather Астрология прогноза погоды.
+ */
 interface IProps {
     astroWeather: IAstroForecast;
 }

@@ -5,6 +5,9 @@ import {IHourForecast} from 'Components/ForecastWeather/Models';
 import { Carousel } from 'antd';
 import 'Components/ForecastWeather/Styles/Forecast.css';
 
+/**
+ * @param hourWeather Почасовой прогноз погоды.
+ */
 interface IProps {
     hourWeather: IHourForecast[];
 }

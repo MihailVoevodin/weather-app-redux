@@ -30,6 +30,12 @@ export const loadDefaultCurrentWeather = createAsyncThunk(
     }
 );
 
+/**
+ * Модель redux-ветки текущей погоды.
+ * @param inputCityValue Значение инпута поиска.
+ * @param currentWeather Текущая погода.
+ * @param isLoading Статус загрузки.
+ */
 export interface ICurrentWeatherState {
     inputCityValue: string,
     currentWeather: Partial<ICurrentWeather>,

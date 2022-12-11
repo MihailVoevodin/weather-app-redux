@@ -14,6 +14,10 @@ export const loadForecastWeather = createAsyncThunk(
     }
 );
 
+/**
+ * Модель redux-ветки прогноза погоды.
+ * @param forecastWeather Массив прогноза погоды.
+ */
 export interface IForecastState {
     forecastWeather: IForecast[];
 }

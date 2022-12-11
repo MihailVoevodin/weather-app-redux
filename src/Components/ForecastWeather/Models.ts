@@ -1,3 +1,6 @@
+/**
+ * Интефейс прогноза погоды.
+ */
 export interface IForecast {
     date: string;
     day: IForecastWeatherDay;
@@ -5,11 +8,17 @@ export interface IForecast {
     astro: IAstroForecast;
 }
 
+/**
+ * Интефейс астрологи прогноза погоды.
+ */
 export interface IAstroForecast {
     sunrise: string;
     sunset: string;
 }
 
+/**
+ * Интефейс деталей прогноза погоды.
+ */
 export interface IDetailsForecast {
     avgtemp_c: number;
     maxwind_mph: number;
@@ -18,6 +27,9 @@ export interface IDetailsForecast {
     daily_chance_of_rain: number;
 }
 
+/**
+ * Интефейс деталей прогноза погоды.
+ */
 interface IForecastWeatherDay {
     avgtemp_c: number;
     maxwind_mph: number;
@@ -29,11 +41,17 @@ interface IForecastWeatherDay {
     condition: IForecastWeatherDayCondition;
 }
 
+/**
+ * Интефейс условий прогноза погоды.
+ */
 interface IForecastWeatherDayCondition {
     text: string;
     icon: string;
 }
 
+/**
+ * Интефейс почасового прогноза погоды.
+ */
 export interface IHourForecast {
     time: string;
     temp_c: number;

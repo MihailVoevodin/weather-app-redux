@@ -9,6 +9,9 @@ import 'Components/ForecastWeather/Styles/Forecast.css';
 
 const { Panel } = Collapse;
 
+/**
+ * @param forecastDay Прогноз погоды.
+ */
 interface IProps {
     forecastDay: IForecast;
 }
