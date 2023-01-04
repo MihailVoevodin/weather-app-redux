@@ -34,7 +34,7 @@
 
 .text {
     height: 50px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .temp {
@@ -66,4 +66,10 @@
 
 .tabContentItem {
     width: 93px !important;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    margin: 0 auto;
 }

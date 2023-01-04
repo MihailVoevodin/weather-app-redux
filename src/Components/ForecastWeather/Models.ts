@@ -24,7 +24,8 @@ export interface IDetailsForecast {
     maxwind_mph: number;
     totalprecip_mm: number;
     avgvis_km: number;
-    daily_chance_of_rain: number;
+    daily_chance_of_rain: number | undefined;
+    daily_chance_of_snow: number | undefined;
 }
 
 /**
@@ -35,7 +36,8 @@ interface IForecastWeatherDay {
     maxwind_mph: number;
     totalprecip_mm: number;
     avgvis_km: number;
-    daily_chance_of_rain: number;
+    daily_chance_of_rain: number | undefined;
+    daily_chance_of_snow: number | undefined;
     maxtemp_c: number;
     mintemp_c: number;
     condition: IForecastWeatherDayCondition;
@@ -54,5 +56,6 @@ interface IForecastWeatherDayCondition {
  */
 export interface IHourForecast {
     time: string;
+    condition: IForecastWeatherDayCondition;
     temp_c: number;
 }

@@ -12,7 +12,7 @@ interface IProps {
 /**
  * Компонент отображения почасового прогноза погоды.
  */
-const ForecastAstroTabContent: React.FC<IProps> = ({astroWeather}): any => {
+const ForecastAstroTabContent: React.FC<IProps> = ({astroWeather}) => {
 
     return (
         <div className={styles.astroTabContent}  style={{color: 'white'}}>
