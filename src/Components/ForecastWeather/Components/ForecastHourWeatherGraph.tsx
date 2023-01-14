@@ -26,11 +26,11 @@ const ForecastHourlyWeatherGraph: React.FC<IProps> = ({hourWeather}) => {
                 margin={{
                     top: 20,
                     right: 0,
-                    left: -38,
+                    left: -28,
                     bottom: 0,
                 }}
             >
-                <XAxis dataKey="time" stroke="#ffffff" label={{ value: "XAxis Label" }} />
+                <XAxis dataKey="time" stroke="#ffffff" />
                 <YAxis stroke="#ffffff" />
                 <Tooltip />
                 <Area type="monotone" dataKey="temp" stroke="#1890ff" fill="#1890ff" />

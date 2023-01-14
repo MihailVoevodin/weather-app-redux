@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 
-.detailsItem {
+.details div {
     padding-top: 10px;
 }
 
@@ -14,4 +14,9 @@
     display: block;
     line-height: 1;
     font-size: 30px;
+}
+
+.details img {
+    display: block;
+    padding-top: 5px;
 }
