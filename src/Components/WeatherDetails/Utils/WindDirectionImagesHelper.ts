@@ -1,20 +1,23 @@
-import N from 'Assets/WindDir/N.png';
-import NNE from 'Assets/WindDir/NNE.png';
-import NE from 'Assets/WindDir/NE.png';
-import ENE from 'Assets/WindDir/ENE.png';
 import E from 'Assets/WindDir/E.png';
+import ENE from 'Assets/WindDir/ENE.png';
 import ESE from 'Assets/WindDir/ESE.png';
+import N from 'Assets/WindDir/N.png';
+import NE from 'Assets/WindDir/NE.png';
+import NNE from 'Assets/WindDir/NNE.png';
+import NNW from 'Assets/WindDir/NNW.png';
+import NW from 'Assets/WindDir/NW.png';
+import S from 'Assets/WindDir/S.png';
 import SE from 'Assets/WindDir/SE.png';
 import SSE from 'Assets/WindDir/SSE.png';
-import S from 'Assets/WindDir/S.png';
 import SSW from 'Assets/WindDir/SSW.png';
 import SW from 'Assets/WindDir/SW.png';
-import WSW from 'Assets/WindDir/WSW.png';
 import W from 'Assets/WindDir/W.png';
 import WNW from 'Assets/WindDir/WNW.png';
-import NW from 'Assets/WindDir/NW.png';
-import NNW from 'Assets/WindDir/NNW.png';
+import WSW from 'Assets/WindDir/WSW.png';
 
+/**
+ * Хелпер вывода картинки направления ветра.
+ */
 export const WindDirectionImagesHelper = (windDirection: string | undefined) => {
     switch (windDirection) {
         case 'N':
@@ -52,4 +55,4 @@ export const WindDirectionImagesHelper = (windDirection: string | undefined) => 
         default:
             return;
     }
-}
+};

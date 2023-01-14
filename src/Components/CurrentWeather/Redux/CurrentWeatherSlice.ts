@@ -1,34 +1,28 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {CurrentWeatherService} from 'api/CurrentWeatherService';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {ICurrentWeather} from 'Components/CurrentWeather/Models';
 
-export const loadCurrentWeather = createAsyncThunk(
-    'current/getCurrentWeather',
-    async (city: string, {rejectWithValue, dispatch}) => {
-        dispatch(toggleIsLoading())
-        const response = await CurrentWeatherService.getCurrentWeather(city);
-        if (response.status !== 200) {
-            return rejectWithValue('Server Error!')
-        };
-        dispatch(setInputValue(city));
-        dispatch(setCurrentWeather(response.data));
-        dispatch(toggleIsLoading());
-        return;
+export const loadCurrentWeather = createAsyncThunk('current/getCurrentWeather', async (city: string, {rejectWithValue, dispatch}) => {
+    dispatch(toggleIsLoading());
+    const response = await CurrentWeatherService.getCurrentWeather(city);
+    if (response.status !== 200) {
+        return rejectWithValue('Server Error!');
     }
-);
+    dispatch(setInputValue(city));
+    dispatch(setCurrentWeather(response.data));
+    dispatch(toggleIsLoading());
+    return;
+});
 
-export const loadDefaultCurrentWeather = createAsyncThunk(
-    'current/getDefaultCurrentWeather',
-    async (_, {rejectWithValue, dispatch}) => {
-        const response = await CurrentWeatherService.getDefaultCurrentWeather();
-        if (response.status !== 200) {
-            return rejectWithValue('Server Error!');
-        };
-        dispatch(setCurrentWeather(response.data));
-        dispatch(toggleIsLoading());
-        return;
+export const loadDefaultCurrentWeather = createAsyncThunk('current/getDefaultCurrentWeather', async (_, {rejectWithValue, dispatch}) => {
+    const response = await CurrentWeatherService.getDefaultCurrentWeather();
+    if (response.status !== 200) {
+        return rejectWithValue('Server Error!');
     }
-);
+    dispatch(setCurrentWeather(response.data));
+    dispatch(toggleIsLoading());
+    return;
+});
 
 /**
  * Модель redux-ветки текущей погоды.
@@ -37,9 +31,9 @@ export const loadDefaultCurrentWeather = createAsyncThunk(
  * @param isLoading Статус загрузки.
  */
 export interface ICurrentWeatherState {
-    inputCityValue: string,
-    currentWeather: Partial<ICurrentWeather>,
-    isLoading: boolean,
+    inputCityValue: string;
+    currentWeather: Partial<ICurrentWeather>;
+    isLoading: boolean;
 }
 
 const initialState: ICurrentWeatherState = {
@@ -65,7 +59,7 @@ const CurrentWeatherSlice = createSlice({
             state.isLoading = !state.isLoading;
         },
     },
-})
+});
 
 export const {setInputValue, setCurrentWeather, toggleIsLoading} = CurrentWeatherSlice.actions;
 

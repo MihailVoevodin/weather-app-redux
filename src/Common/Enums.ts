@@ -4,5 +4,5 @@
 export enum ECurrentDay {
     TODAY,
     TOMORROW,
-    AFTER_TOMORROW
+    AFTER_TOMORROW,
 }

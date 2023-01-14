@@ -1,13 +1,13 @@
-import React from 'react';
 import {Collapse} from 'antd';
-import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
-import {ForecastDetailsTabContent} from 'Components/ForecastWeather/Components/ForecastDetailsTabContent';
+import React from 'react';
 import {ForecastAstroTabContent} from 'Components/ForecastWeather/Components/ForecastAstroTabContent';
+import {ForecastDetailsTabContent} from 'Components/ForecastWeather/Components/ForecastDetailsTabContent';
 import {ForecastHourlyTabContent} from 'Components/ForecastWeather/Components/ForecastHourlyTabContent';
 import {IForecast} from 'Components/ForecastWeather/Models';
+import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import 'Components/ForecastWeather/Styles/Forecast.css';
 
-const { Panel } = Collapse;
+const {Panel} = Collapse;
 
 /**
  * @param forecastDay Прогноз погоды.
@@ -20,7 +20,6 @@ interface IProps {
  * Компонент отображения тайтлов табов прогноза погоды.
  */
 const ForecastCollapseComp: React.FC<IProps> = ({forecastDay}) => {
-
     return (
         <Collapse className={styles.collapse} ghost>
             <Panel header="Details" key="1">
@@ -33,7 +32,7 @@ const ForecastCollapseComp: React.FC<IProps> = ({forecastDay}) => {
                 <ForecastHourlyTabContent hourWeather={forecastDay.hour} />
             </Panel>
         </Collapse>
-    )
-}
+    );
+};
 
 export {ForecastCollapseComp};

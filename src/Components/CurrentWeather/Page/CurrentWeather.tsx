@@ -1,6 +1,6 @@
-import Spinner from 'Common/Components/Spinner';
-import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from 'hooks';
+import React, {useEffect} from 'react';
+import Spinner from 'Common/Components/Spinner';
 import {loadDefaultCurrentWeather} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
 import styles from 'Components/CurrentWeather/Styles/CurrentWeather.module.css';
 const moment = require('moment');
@@ -10,35 +10,37 @@ const moment = require('moment');
  */
 const CurrentWeather: React.FC = () => {
     const dispatch = useAppDispatch();
-    const {current, location} = useAppSelector(state => state.current.currentWeather)
-    const isLoading = useAppSelector(state => state.current.isLoading)
+    const {current, location} = useAppSelector((state) => state.current.currentWeather);
+    const isLoading = useAppSelector((state) => state.current.isLoading);
 
     useEffect(() => {
-        dispatch(loadDefaultCurrentWeather()) //TODO: поменять в апишке возвращаемые поля
-    }, [dispatch])
+        dispatch(loadDefaultCurrentWeather()); // TODO: поменять в апишке возвращаемые поля
+    }, [dispatch]);
 
     return (
         <>
-        {isLoading
-            ? <Spinner/>
-            : <div>
-                <span className={styles.locationCity}>{location?.name}, {location?.country}</span>
-                <div>{moment(location?.localtime).format('ddd HH:mm - DD MMM')}</div>
+            {isLoading ? (
+                <Spinner />
+            ) : (
                 <div>
-                    <div className={styles.temp}>
-                        {current?.temp_c} ℃
-                        <span className={styles.tempFeelsLike}>feels like {Math.round(current?.feelslike_c as number)} ℃</span>
+                    <span className={styles.locationCity}>
+                        {location?.name}, {location?.country}
+                    </span>
+                    <div>{moment(location?.localtime).format('ddd HH:mm - DD MMM')}</div>
+                    <div>
+                        <div className={styles.temp}>
+                            {current?.temp_c} ℃
+                            <span className={styles.tempFeelsLike}>feels like {Math.round(current?.feelslike_c as number)} ℃</span>
+                        </div>
+                        <div className={styles.condition}>
+                            <img src={current?.condition.icon} alt="condition icon" />
+                            <span>{current?.condition.text.toLowerCase()}</span>
+                        </div>
                     </div>
-                    <div className={styles.condition}>
-                        <img src={current?.condition.icon} alt='condition icon'/>
-                        <span>{current?.condition.text.toLowerCase()}</span>
-                    </div>
-
                 </div>
-            </div>
-        }
+            )}
         </>
-    )
-}
+    );
+};
 
 export {CurrentWeather};
