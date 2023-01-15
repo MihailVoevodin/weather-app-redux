@@ -8,6 +8,8 @@ body {
   background-image: url("Assets/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
+  background-position: center center;
 }
 
 code {

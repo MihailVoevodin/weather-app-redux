@@ -1,7 +1,7 @@
 import {useAppSelector} from 'hooks';
 import React from 'react';
-import styles from 'Components/WeatherDetails/Styles/WeatherDetails.module.css';
-import {WindDirectionImagesHelper} from 'Components/WeatherDetails/Utils/WindDirectionImagesHelper';
+import styles from 'Components/CurrentWeather/WeatherDetails/Styles/WeatherDetails.module.css';
+import {WindDirectionImagesHelper} from 'Components/CurrentWeather/WeatherDetails/Utils/WindDirectionImagesHelper';
 
 /**
  * Компонент отображения текущей погоды.
