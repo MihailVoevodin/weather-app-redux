@@ -3,6 +3,7 @@ import {useAppDispatch} from 'hooks';
 import React from 'react';
 import {loadCurrentWeather} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
 import {loadForecastWeather} from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
+import styles from 'Components/SearchPanel/Styles/SearchPanel.module.css';
 
 const {Search} = Input;
 
@@ -18,9 +19,9 @@ export const SearchPanel: React.FC = () => {
     };
 
     return (
-        <>
+        <div className={styles.searchPanel}>
             <h1 style={{color: 'white'}}>Enter city</h1>
-            <Search style={{width: 400}} placeholder="input city" onSearch={onSearch} enterButton />
-        </>
+            <Search className={styles.searchInput} placeholder="input city" onSearch={onSearch} enterButton />
+        </div>
     );
 };
