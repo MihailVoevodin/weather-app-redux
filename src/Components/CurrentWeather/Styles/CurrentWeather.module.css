@@ -19,3 +19,27 @@
   width: 60px;
   height: 60px;
 }
+
+@media (max-width: 550px) {
+  .locationCity {
+    font-size: 28px;
+  }
+  .temp {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .tempFeelsLike {
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+  }
+  .condition {
+    text-align: center;
+  }
+
+  .condition img {
+    width: 60px;
+    height: 60px;
+  }
+}

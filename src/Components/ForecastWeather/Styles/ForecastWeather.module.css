@@ -75,10 +75,10 @@
         width: 500px;
     }
     .dayWeather {
-        width: 145px;
+        width: 144px;
     }
     .Tab {
-        width: 500px;
+        width: 496px;
     }
     .tabContentItem {
         margin: 10px;
@@ -87,15 +87,25 @@
 
 @media (max-width: 550px) {
     .forecast {
-        width: 400px;
+        width: 350px;
     }
     .dayWeather {
-        width: 100px;
+        width: 94px;
     }
     .Tab {
-        width: 400px;
+        width: 346px;
     }
     .tabContentItem {
         margin: 10px;
+    }
+    .temp {
+        font-size: 18px;
+    }
+    .mintemp {
+        padding-left: 2px;
+        font-size: 14px;
+    }
+    .text {
+        display: none;
     }
 }
