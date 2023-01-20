@@ -10,17 +10,17 @@ import 'Components/ForecastWeather/Styles/Forecast.css';
  * @param hourWeather Почасовой прогноз погоды.
  */
 interface IProps {
-    hourWeather: IHourForecast[];
+    hourForecastWeather: IHourForecast[];
 }
 
 /**
  * Компонент отображения почасового прогноза погоды.
  */
-const ForecastHourlyTabContent: React.FC<IProps> = ({hourWeather}) => {
+const ForecastHourlyTabContent: React.FC<IProps> = ({hourForecastWeather}) => {
     return (
         <>
             <Carousel arrows={true} className={styles.tabContent} dots={false} style={{color: 'white'}} slidesToShow={6} slidesToScroll={6}>
-                {hourWeather.map((hour: IHourForecast, index) => (
+                {hourForecastWeather.map((hour: IHourForecast, index) => (
                     <div className={styles.tabContentItem} key={index}>
                         <div className={styles.date}>{moment(hour.time).format('HH:mm')}</div>
                         <img className={styles.icon} src={hour.condition.icon} alt="condition icon" />
@@ -28,7 +28,7 @@ const ForecastHourlyTabContent: React.FC<IProps> = ({hourWeather}) => {
                     </div>
                 ))}
             </Carousel>
-            <ForecastHourlyWeatherGraph hourWeather={hourWeather} />
+            <ForecastHourlyWeatherGraph hourForecastWeather={hourForecastWeather} />
         </>
     );
 };

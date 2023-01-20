@@ -14,8 +14,8 @@ export const SearchPanel: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const onSearch = (value: string) => {
-        dispatch(loadCurrentWeather(value));
-        dispatch(loadForecastWeather(value));
+        void dispatch(loadCurrentWeather(value));
+        void dispatch(loadForecastWeather(value));
     };
 
     return (

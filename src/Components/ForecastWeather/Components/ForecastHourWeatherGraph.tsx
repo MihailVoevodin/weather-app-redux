@@ -7,11 +7,11 @@ import {IHourForecast} from 'Components/ForecastWeather/Models';
  * @param hourWeather Почасовой прогноз погоды.
  */
 interface IProps {
-    hourWeather: IHourForecast[];
+    hourForecastWeather: IHourForecast[];
 }
 
-const ForecastHourlyWeatherGraph: React.FC<IProps> = ({hourWeather}) => {
-    const formatHourWeather = hourWeather.map((hour) => {
+const ForecastHourlyWeatherGraph: React.FC<IProps> = ({hourForecastWeather}) => {
+    const formatHourWeather = hourForecastWeather.map((hour) => {
         return {
             time: moment(hour.time).format('HH:mm'),
             temp: hour.temp_c,

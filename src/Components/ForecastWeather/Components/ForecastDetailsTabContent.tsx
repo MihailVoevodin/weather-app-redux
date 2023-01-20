@@ -1,35 +1,37 @@
 import React from 'react';
-import {IDetailsForecast} from 'Components/ForecastWeather/Models';
+import {IForecastWeatherDay} from 'Components/ForecastWeather/Models';
 import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 
 /**
  * @param forecastDay Детали прогноза погоды.
  */
 interface IProps {
-    detailsWeather: IDetailsForecast;
+    detailsForecastWeather: IForecastWeatherDay;
 }
 
 /**
  * Компонент отображения почасового прогноза погоды.
  */
-const ForecastDetailsTabContent: React.FC<IProps> = ({detailsWeather}) => {
+const ForecastDetailsTabContent: React.FC<IProps> = ({detailsForecastWeather}) => {
+    const {avgtemp_c, maxwind_mph, totalprecip_mm, avgvis_km, daily_chance_of_rain, daily_chance_of_snow} = detailsForecastWeather;
+
     return (
         <div className={styles.detailsTabContent} style={{color: 'white'}}>
             <div>
-                Average temperature<span>{detailsWeather.avgtemp_c}°</span>
+                Average temperature<span>{avgtemp_c}°</span>
             </div>
             <div>
-                Maximum wind speed<span>{detailsWeather.maxwind_mph} mph</span>
+                Maximum wind speed<span>{maxwind_mph} mph</span>
             </div>
             <div>
-                Total precipitation<span>{detailsWeather.totalprecip_mm} mm</span>
+                Total precipitation<span>{totalprecip_mm} mm</span>
             </div>
             <div>
-                Average visibility<span>{detailsWeather.avgvis_km} km</span>
+                Average visibility<span>{avgvis_km} km</span>
             </div>
             <div>
-                {detailsWeather.avgtemp_c > 0 ? 'Daily chance of rain' : 'Daily chance of snow'}
-                <span>{detailsWeather.avgtemp_c > 0 ? detailsWeather.daily_chance_of_rain : detailsWeather.daily_chance_of_snow} %</span>
+                {avgtemp_c > 0 ? 'Daily chance of rain' : 'Daily chance of snow'}
+                <span>{avgtemp_c > 0 ? daily_chance_of_rain : daily_chance_of_snow} %</span>
             </div>
         </div>
     );

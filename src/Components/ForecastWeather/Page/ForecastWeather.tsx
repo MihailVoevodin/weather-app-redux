@@ -19,8 +19,8 @@ export const ForecastWeather: React.FC = () => {
     const isLoading = useAppSelector((state) => state.current.isLoading);
 
     useEffect(() => {
-        dispatch(loadForecastWeather(inputCityValue));
-    }, [dispatch]);
+        void dispatch(loadForecastWeather(inputCityValue));
+    }, [dispatch, inputCityValue]);
 
     return (
         <>
@@ -28,20 +28,23 @@ export const ForecastWeather: React.FC = () => {
                 <div className={styles.forecast}>
                     {forecastWeather.length !== 0 ? (
                         <Tabs className={styles.Tab} style={{color: 'white'}}>
-                            <TabPane tab={<ForecastTabTitle dayWeather={forecastWeather[ECurrentDay.TODAY]} />} key={ECurrentDay.TODAY}>
-                                <ForecastCollapseComp forecastDay={forecastWeather[ECurrentDay.TODAY]} />
+                            <TabPane
+                                tab={<ForecastTabTitle forecastWeather={forecastWeather[ECurrentDay.TODAY]} />}
+                                key={ECurrentDay.TODAY}
+                            >
+                                <ForecastCollapseComp forecastWeather={forecastWeather[ECurrentDay.TODAY]} />
                             </TabPane>
                             <TabPane
-                                tab={<ForecastTabTitle dayWeather={forecastWeather[ECurrentDay.TOMORROW]} />}
+                                tab={<ForecastTabTitle forecastWeather={forecastWeather[ECurrentDay.TOMORROW]} />}
                                 key={ECurrentDay.TOMORROW}
                             >
-                                <ForecastCollapseComp forecastDay={forecastWeather[ECurrentDay.TOMORROW]} />
+                                <ForecastCollapseComp forecastWeather={forecastWeather[ECurrentDay.TOMORROW]} />
                             </TabPane>
                             <TabPane
-                                tab={<ForecastTabTitle dayWeather={forecastWeather[ECurrentDay.AFTER_TOMORROW]} />}
+                                tab={<ForecastTabTitle forecastWeather={forecastWeather[ECurrentDay.AFTER_TOMORROW]} />}
                                 key={ECurrentDay.AFTER_TOMORROW}
                             >
-                                <ForecastCollapseComp forecastDay={forecastWeather[ECurrentDay.AFTER_TOMORROW]} />
+                                <ForecastCollapseComp forecastWeather={forecastWeather[ECurrentDay.AFTER_TOMORROW]} />
                             </TabPane>
                         </Tabs>
                     ) : (

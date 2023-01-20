@@ -7,30 +7,35 @@ import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css
  * @param dayWeather Основная информация таба прогноза погоды.
  */
 interface IProps {
-    dayWeather: IForecast;
+    forecastWeather: IForecast;
 }
 
 /**
  * Компонент отображения тайтлов табов прогноза погоды.
  */
-const ForecastTabTitle: React.FC<IProps> = ({dayWeather}) => {
-    console.log(dayWeather.day.condition.text.length);
+const ForecastTabTitle: React.FC<IProps> = ({forecastWeather}) => {
+    const {
+        day: {
+            condition: {text, icon},
+            maxtemp_c,
+            mintemp_c,
+        },
+        date,
+    } = forecastWeather;
+
     return (
         <div className={styles.dayWeather}>
-            <div className={styles.date}>{moment(dayWeather.date).format('ddd DD')}</div>
+            <div className={styles.date}>{moment(date).format('ddd DD')}</div>
 
             <div>
-                <img className={styles.icon} src={dayWeather.day.condition.icon} alt="condition icon" />
+                <img className={styles.icon} src={icon} alt="condition icon" />
                 <div className={styles.text}>
-                    {dayWeather.day.condition.text.length > 20
-                        ? dayWeather.day.condition.text.split(' ')[3][0].toUpperCase() +
-                          dayWeather.day.condition.text.split(' ')[3].substring(1)
-                        : dayWeather.day.condition.text}
+                    {text.length > 20 ? text.split(' ')[3][0].toUpperCase() + text.split(' ')[3].substring(1) : text}
                 </div>
             </div>
             <div className={styles.temp}>
-                <span className={styles.maxtemp}>{dayWeather.day.maxtemp_c}°</span>
-                <span className={styles.mintemp}>{dayWeather.day.mintemp_c}°</span>
+                <span className={styles.maxtemp}>{maxtemp_c}°</span>
+                <span className={styles.mintemp}>{mintemp_c}°</span>
             </div>
         </div>
     );

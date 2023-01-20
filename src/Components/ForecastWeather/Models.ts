@@ -19,19 +19,7 @@ export interface IAstroForecast {
 /**
  * Интефейс деталей прогноза погоды.
  */
-export interface IDetailsForecast {
-    avgtemp_c: number;
-    maxwind_mph: number;
-    totalprecip_mm: number;
-    avgvis_km: number;
-    daily_chance_of_rain: number | undefined;
-    daily_chance_of_snow: number | undefined;
-}
-
-/**
- * Интефейс деталей прогноза погоды.
- */
-interface IForecastWeatherDay {
+export interface IForecastWeatherDay {
     avgtemp_c: number;
     maxwind_mph: number;
     totalprecip_mm: number;
