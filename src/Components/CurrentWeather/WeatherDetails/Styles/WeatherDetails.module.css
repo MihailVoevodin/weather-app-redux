@@ -20,3 +20,18 @@
     display: block;
     padding-top: 5px;
 }
+
+@media (max-width: 550px) {
+    .details span {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 380px) {
+    .details span {
+        font-size: 14px;
+    }
+    .details div {
+        font-size: 16px;
+    }
+}

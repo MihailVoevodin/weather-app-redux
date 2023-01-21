@@ -24,6 +24,7 @@ export interface IForecastWeatherDay {
     maxwind_mph: number;
     totalprecip_mm: number;
     avgvis_km: number;
+    avghumidity: number;
     daily_chance_of_rain: number | undefined;
     daily_chance_of_snow: number | undefined;
     maxtemp_c: number;

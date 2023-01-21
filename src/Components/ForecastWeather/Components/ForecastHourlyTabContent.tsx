@@ -22,9 +22,9 @@ const ForecastHourlyTabContent: React.FC<IProps> = ({hourForecastWeather}) => {
             <Carousel arrows={true} className={styles.tabContent} dots={false} style={{color: 'white'}} slidesToShow={6} slidesToScroll={6}>
                 {hourForecastWeather.map((hour: IHourForecast, index) => (
                     <div className={styles.tabContentItem} key={index}>
-                        <div className={styles.date}>{moment(hour.time).format('HH:mm')}</div>
-                        <img className={styles.icon} src={hour.condition.icon} alt="condition icon" />
-                        <div className={styles.temp}>{hour.temp_c}°</div>
+                        <div className={styles.hourlyTime}>{moment(hour.time).format('HH:mm')}</div>
+                        <img className={styles.hourlyIcon} src={hour.condition.icon} alt="condition icon" />
+                        <div className={styles.hourlyTemp}>{hour.temp_c}°</div>
                     </div>
                 ))}
             </Carousel>

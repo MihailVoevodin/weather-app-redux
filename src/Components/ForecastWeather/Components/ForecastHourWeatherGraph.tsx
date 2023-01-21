@@ -19,22 +19,24 @@ const ForecastHourlyWeatherGraph: React.FC<IProps> = ({hourForecastWeather}) => 
     });
 
     return (
-        <ResponsiveContainer minWidth={300} minHeight={200}>
-            <AreaChart
-                data={formatHourWeather}
-                margin={{
-                    top: 20,
-                    right: 0,
-                    left: -28,
-                    bottom: 0,
-                }}
-            >
-                <XAxis dataKey="time" stroke="#ffffff" />
-                <YAxis stroke="#ffffff" />
-                <Tooltip />
-                <Area type="monotone" dataKey="temp" stroke="#1890ff" fill="#1890ff" />
-            </AreaChart>
-        </ResponsiveContainer>
+        <div>
+            <ResponsiveContainer minWidth={280} minHeight={200}>
+                <AreaChart
+                    data={formatHourWeather}
+                    margin={{
+                        top: 20,
+                        right: 0,
+                        left: -20,
+                        bottom: 0,
+                    }}
+                >
+                    <XAxis dataKey="time" stroke="#ffffff" />
+                    <YAxis stroke="#ffffff" />
+                    <Tooltip />
+                    <Area type="monotone" dataKey="temp" stroke="#1890ff" fill="#1890ff" />
+                </AreaChart>
+            </ResponsiveContainer>
+        </div>
     );
 };
 

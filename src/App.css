@@ -13,3 +13,9 @@
   justify-content: space-around;
 }
 
+@media (max-width: 380px) {
+  .App {
+    padding: 0 10px;
+  }
+}
+

@@ -22,24 +22,18 @@
 
 @media (max-width: 550px) {
   .locationCity {
-    font-size: 28px;
+    font-size: 26px;
   }
   .temp {
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 36px;
   }
+}
 
-  .tempFeelsLike {
-    font-size: 14px;
-    font-weight: normal;
-    display: block;
+@media (max-width: 380px) {
+  .locationCity {
+    font-size: 18px;
   }
-  .condition {
-    text-align: center;
-  }
-
-  .condition img {
-    width: 60px;
-    height: 60px;
+  .temp {
+    font-size: 28px;
   }
 }

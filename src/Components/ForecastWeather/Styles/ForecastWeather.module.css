@@ -3,16 +3,10 @@
     margin: 0 auto;
 }
 
-.tabContent {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
 .tabContentItem {
     text-align: center;
     width: 93px;
-    margin: 15px;
+    margin: 15px 0;
 }
 
 .dayWeather {
@@ -48,8 +42,8 @@
 }
 
 .detailsTabContent {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     font-size: 14px;
 }
 
@@ -64,10 +58,16 @@
     font-size: 20px;
 }
 
-.icon {
-    width: 35px;
-    height: 35px;
+.hourlyIcon {
+    width: 60px;
+    height: 60px;
     margin: 0 auto;
+}
+
+.hourlyTime,
+.hourlyTemp {
+    font-size: 24px;
+    line-height: 1;
 }
 
 @media (max-width: 800px) {
@@ -80,8 +80,14 @@
     .Tab {
         width: 496px;
     }
-    .tabContentItem {
-        margin: 10px;
+    .detailsTabContent {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    .hourlyTime,
+    .hourlyTemp {
+        font-size: 20px;
+        line-height: 1;
     }
 }
 
@@ -95,9 +101,6 @@
     .Tab {
         width: 346px;
     }
-    .tabContentItem {
-        margin: 10px;
-    }
     .temp {
         font-size: 18px;
     }
@@ -107,5 +110,45 @@
     }
     .text {
         display: none;
+    }
+    .date {
+        font-size: 20px;
+    }
+    .detailsTabContent {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .tabContentItem {
+        margin: 10px 0;
+    }
+    .hourlyTime,
+    .hourlyTemp {
+        font-size: 14px;
+        line-height: 1;
+    }
+    .hourlyIcon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 380px) {
+    .forecast {
+        width: 298px;
+    }
+    .dayWeather {
+        width: 90px;
+    }
+    .Tab {
+        width: 290px;
+    }
+    .temp {
+        font-size: 14px;
+    }
+    .mintemp {
+        font-size: 10px;
+    }
+    .date {
+        font-size: 16px;
     }
 }
