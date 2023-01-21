@@ -4,23 +4,27 @@ import {ICurrentWeather} from 'Components/CurrentWeather/Models';
 
 export const loadCurrentWeather = createAsyncThunk('current/getCurrentWeather', async (city: string, {rejectWithValue, dispatch}) => {
     dispatch(toggleIsLoading());
-    const response = await CurrentWeatherService.getCurrentWeather(city);
-    if (response.status !== 200) {
-        return rejectWithValue('Server Error!');
+    try {
+        const response = await CurrentWeatherService.getCurrentWeather(city);
+        dispatch(setInputValue(city));
+        dispatch(setCurrentWeather(response.data));
+        dispatch(deleteError());
+        dispatch(toggleIsLoading());
+    } catch (error) {
+        dispatch(setError(rejectWithValue('error')));
+        dispatch(toggleIsLoading());
     }
-    dispatch(setInputValue(city));
-    dispatch(setCurrentWeather(response.data));
-    dispatch(toggleIsLoading());
     return;
 });
 
 export const loadDefaultCurrentWeather = createAsyncThunk('current/getDefaultCurrentWeather', async (_, {rejectWithValue, dispatch}) => {
-    const response = await CurrentWeatherService.getDefaultCurrentWeather();
-    if (response.status !== 200) {
-        return rejectWithValue('Server Error!');
+    try {
+        const response = await CurrentWeatherService.getDefaultCurrentWeather();
+        dispatch(setCurrentWeather(response.data));
+        dispatch(toggleIsLoading());
+    } catch (error) {
+        return rejectWithValue('error');
     }
-    dispatch(setCurrentWeather(response.data));
-    dispatch(toggleIsLoading());
     return;
 });
 
@@ -34,12 +38,16 @@ export interface ICurrentWeatherState {
     inputCityValue: string;
     currentWeather: Partial<ICurrentWeather>;
     isLoading: boolean;
+    error: '' | 'error' | 'warning' | undefined;
+    errorMessage: string;
 }
 
 const initialState: ICurrentWeatherState = {
     inputCityValue: 'Москва',
     currentWeather: {},
     isLoading: true,
+    error: '',
+    errorMessage: '',
 };
 
 /**
@@ -58,9 +66,17 @@ const CurrentWeatherSlice = createSlice({
         toggleIsLoading(state) {
             state.isLoading = !state.isLoading;
         },
+        setError(state, action) {
+            state.error = action.payload.payload;
+            state.errorMessage = 'No matching location found';
+        },
+        deleteError(state) {
+            state.error = '';
+            state.errorMessage = '';
+        },
     },
 });
 
-export const {setInputValue, setCurrentWeather, toggleIsLoading} = CurrentWeatherSlice.actions;
+export const {setInputValue, setCurrentWeather, toggleIsLoading, setError, deleteError} = CurrentWeatherSlice.actions;
 
 export default CurrentWeatherSlice.reducer;
