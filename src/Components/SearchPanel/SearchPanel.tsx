@@ -29,7 +29,7 @@ export const SearchPanel: React.FC = () => {
 
     return (
         <div className={styles.searchPanel}>
-            <h1 style={{color: 'white'}}>Enter city</h1>
+            <h1 style={{color: 'white'}}>Check the Weather</h1>
             <Search
                 className={styles.searchInput}
                 value={city}

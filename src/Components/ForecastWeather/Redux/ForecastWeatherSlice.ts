@@ -3,11 +3,12 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {IForecast} from 'Components/ForecastWeather/Models';
 
 export const loadForecastWeather = createAsyncThunk('forecast/getForecastWeather', async (city: string, {rejectWithValue, dispatch}) => {
-    const response = await ForecastWeatherService.getForecastWeather(city);
-    if (response.status !== 200) {
-        return rejectWithValue('Server Error!');
+    try {
+        const response = await ForecastWeatherService.getForecastWeather(city);
+        dispatch(setForecastWeather(response.data.forecast.forecastday));
+    } catch (error) {
+        return rejectWithValue('error');
     }
-    dispatch(setForecastWeather(response.data.forecast.forecastday));
     return;
 });
 
