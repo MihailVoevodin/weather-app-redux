@@ -38,5 +38,8 @@
     "noEmitOnError": false,
     "noErrorTruncation": true,
     "keyofStringsOnly": true,
+    "plugins": [{
+      "name": "typescript-plugin-css-modules"
+    }]
   }
 }
