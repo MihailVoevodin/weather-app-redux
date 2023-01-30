@@ -1,9 +1,25 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import {Provider} from 'react-redux';
+import {configureStore} from '@reduxjs/toolkit';
+import {render} from '@testing-library/react';
+import CurrentWeatherSlice from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
+import ForecastWeatherSlice from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App testing', () => {
+    const store = configureStore({
+        reducer: {
+            current: CurrentWeatherSlice,
+            forecast: ForecastWeatherSlice,
+        },
+    });
+
+    test('renders learn react link', () => {
+        const FullApp = render(
+            <Provider store={store}>
+                <App />
+            </Provider>
+        );
+        expect(FullApp).toMatchSnapshot();
+    });
 });

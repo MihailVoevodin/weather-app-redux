@@ -16,9 +16,10 @@ export const SearchPanel: React.FC = () => {
 
     const [city, setCity] = useState<string>('');
 
-    const onSearch = (value: string) => {
-        void dispatch(loadCurrentWeather(value));
-        void dispatch(loadForecastWeather(value));
+    const onSearch = (city: string) => {
+        void dispatch(loadCurrentWeather(city));
+        void dispatch(loadForecastWeather(city));
+        setCity('');
     };
 
     const nonLettersRegExp = new RegExp(/[^a-zа-яё]/i);
