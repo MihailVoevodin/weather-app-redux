@@ -19,7 +19,7 @@ interface IProps {
 const ForecastHourlyTabContent: React.FC<IProps> = ({hourForecastWeather}) => {
     return (
         <>
-            <Carousel arrows={true} className={styles.tabContent} dots={false} style={{color: 'white'}} slidesToShow={6} slidesToScroll={6}>
+            <Carousel arrows={true} dots={false} style={{color: 'white'}} slidesToShow={6} slidesToScroll={6}>
                 {hourForecastWeather.map((hour: IHourForecast, index) => (
                     <div className={styles.tabContentItem} key={index}>
                         <div className={styles.hourlyTime}>{moment(hour.time).format('HH:mm')}</div>

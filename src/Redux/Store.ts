@@ -1,8 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
-import CurrentWeatherSlice from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
-import ForecastWeatherSlice from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
+import CurrentWeatherSlice, {ICurrentWeatherState} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
+import ForecastWeatherSlice, {IForecastState} from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
 
-export const store = configureStore({
+export interface IAppState {
+    current: ICurrentWeatherState;
+    forecast: IForecastState;
+}
+
+export const store = configureStore<IAppState>({
     reducer: {
         current: CurrentWeatherSlice,
         forecast: ForecastWeatherSlice,

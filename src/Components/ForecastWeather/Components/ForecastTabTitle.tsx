@@ -28,13 +28,13 @@ const ForecastTabTitle: React.FC<IProps> = ({forecastWeather}) => {
             <div className={styles.date}>{moment(date).format('ddd DD')}</div>
 
             <div>
-                <img className={styles.icon} src={icon} alt="condition icon" />
+                <img className={styles.hourlyIcon} src={icon} alt="condition icon" />
                 <div className={styles.text}>
                     {text.length > 20 ? text.split(' ')[3][0].toUpperCase() + text.split(' ')[3].substring(1) : text}
                 </div>
             </div>
             <div className={styles.temp}>
-                <span className={styles.maxtemp}>{maxtemp_c}°</span>
+                <span>{maxtemp_c}°</span>
                 <span className={styles.mintemp}>{mintemp_c}°</span>
             </div>
         </div>

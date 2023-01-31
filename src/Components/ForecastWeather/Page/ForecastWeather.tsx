@@ -2,6 +2,7 @@ import {Tabs} from 'antd';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import React, {useEffect} from 'react';
 import {ECurrentDay} from 'Common/Enums';
+import {getIsLoading} from 'Components/CurrentWeather/Redux/selectors';
 import {ForecastCollapseComp} from 'Components/ForecastWeather/Components/ForecastCollapseComp';
 import {ForecastTabTitle} from 'Components/ForecastWeather/Components/ForecastTabTitle';
 import {loadForecastWeather} from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
@@ -16,7 +17,7 @@ export const ForecastWeather: React.FC = () => {
     const dispatch = useAppDispatch();
     const {inputCityValue} = useAppSelector((state) => state.current);
     const {forecastWeather} = useAppSelector((state) => state.forecast);
-    const isLoading = useAppSelector((state) => state.current.isLoading);
+    const isLoading = useAppSelector(getIsLoading);
 
     useEffect(() => {
         void dispatch(loadForecastWeather(inputCityValue));

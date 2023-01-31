@@ -1,5 +1,6 @@
 import {useAppSelector} from 'hooks';
 import React from 'react';
+import {getCurrentWeather, getIsLoading} from 'Components/CurrentWeather/Redux/selectors';
 import styles from 'Components/CurrentWeather/WeatherDetails/Styles/WeatherDetails.module.css';
 import {WindDirectionImagesHelper} from 'Components/CurrentWeather/WeatherDetails/Utils/WindDirectionImagesHelper';
 
@@ -7,8 +8,8 @@ import {WindDirectionImagesHelper} from 'Components/CurrentWeather/WeatherDetail
  * Компонент отображения текущей погоды.
  */
 export const WeatherDetails: React.FC = () => {
-    const {current} = useAppSelector((state) => state.current.currentWeather);
-    const isLoading = useAppSelector((state) => state.current.isLoading);
+    const {current} = useAppSelector(getCurrentWeather);
+    const isLoading = useAppSelector(getIsLoading);
     return (
         <>
             {!isLoading && (

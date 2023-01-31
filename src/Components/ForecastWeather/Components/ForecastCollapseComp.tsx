@@ -4,7 +4,6 @@ import {ForecastAstroTabContent} from 'Components/ForecastWeather/Components/For
 import {ForecastDetailsTabContent} from 'Components/ForecastWeather/Components/ForecastDetailsTabContent';
 import {ForecastHourlyTabContent} from 'Components/ForecastWeather/Components/ForecastHourlyTabContent';
 import {IForecast} from 'Components/ForecastWeather/Models';
-import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 import 'Components/ForecastWeather/Styles/Forecast.css';
 
 const {Panel} = Collapse;
@@ -23,7 +22,7 @@ const ForecastCollapseComp: React.FC<IProps> = ({forecastWeather}) => {
     const {day, astro, hour} = forecastWeather;
 
     return (
-        <Collapse className={styles.collapse} ghost>
+        <Collapse ghost>
             <Panel header="Details" key="1">
                 <ForecastDetailsTabContent detailsForecastWeather={day} />
             </Panel>

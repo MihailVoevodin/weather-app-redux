@@ -2,6 +2,7 @@ import {useAppDispatch, useAppSelector} from 'hooks';
 import React, {useEffect} from 'react';
 import Spinner from 'Common/Components/Spinner';
 import {loadDefaultCurrentWeather} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
+import {getCurrentWeather, getIsLoading} from 'Components/CurrentWeather/Redux/selectors';
 import styles from 'Components/CurrentWeather/Styles/CurrentWeather.module.css';
 const moment = require('moment');
 
@@ -10,8 +11,8 @@ const moment = require('moment');
  */
 const CurrentWeather: React.FC = () => {
     const dispatch = useAppDispatch();
-    const {current, location} = useAppSelector((state) => state.current.currentWeather);
-    const isLoading = useAppSelector((state) => state.current.isLoading);
+    const {current, location} = useAppSelector(getCurrentWeather);
+    const isLoading = useAppSelector(getIsLoading);
     useEffect(() => {
         void dispatch(loadDefaultCurrentWeather()); // TODO: поменять в апишке возвращаемые поля
     }, [dispatch]);

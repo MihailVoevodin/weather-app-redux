@@ -15,34 +15,25 @@ describe('Search Panel', () => {
         },
     });
 
-    test('SearchPanel renders', () => {
+    beforeEach(() => {
         render(
             <Provider store={store}>
                 <SearchPanel />
             </Provider>
         );
+    });
+
+    test('SearchPanel renders', () => {
         expect(screen.getByText(/check the weather/i)).toBeInTheDocument();
         expect(screen.getByPlaceholderText(/input city/i)).toBeInTheDocument();
     });
 
     test('Change input', () => {
-        render(
-            <Provider store={store}>
-                <SearchPanel />
-            </Provider>
-        );
         const input = screen.getByPlaceholderText(/input city/i);
         userEvent.type(input, 'Лондон');
-        expect(input).toContainHTML('Лондон');
-    });
-
-    test('onSearch click', () => {
-        render(
-            <Provider store={store}>
-                <SearchPanel />
-            </Provider>
-        );
+        expect(input).toHaveDisplayValue('Лондон');
         fireEvent.click(screen.getByRole('button'));
+        expect(input).toHaveDisplayValue('');
     });
 
     test('SearchPanel snapshot', () => {
