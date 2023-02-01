@@ -1,11 +1,12 @@
 import {ForecastWeatherService} from 'api/ForecastWeatherService';
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import {IForecast} from 'Components/ForecastWeather/Models';
 
 export const loadForecastWeather = createAsyncThunk('forecast/getForecastWeather', async (city: string, {rejectWithValue, dispatch}) => {
     try {
         const response = await ForecastWeatherService.getForecastWeather(city);
-        dispatch(setForecastWeather(response.data.forecast.forecastday));
+        const data: IForecast[] = response.data.forecast.forecastday;
+        dispatch(setForecastWeather(data));
     } catch (error) {
         return rejectWithValue('error');
     }
@@ -31,7 +32,7 @@ const ForecastWeatherSlice = createSlice({
     name: 'forecast',
     initialState: initialState,
     reducers: {
-        setForecastWeather(state, action) {
+        setForecastWeather(state, action: PayloadAction<IForecast[]>) {
             state.forecastWeather = action.payload;
         },
     },

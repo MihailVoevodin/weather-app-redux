@@ -102,6 +102,7 @@
         width: 346px;
     }
     .temp {
+        padding-top: 10px;
         font-size: 18px;
     }
     .mintemp {

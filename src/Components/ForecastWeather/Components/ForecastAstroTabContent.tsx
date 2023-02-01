@@ -1,5 +1,5 @@
 import React from 'react';
-import {countDayLength} from 'Components/ForecastWeather/Helpers/formatDayLengthHelper';
+import {countDayLength} from 'Components/ForecastWeather/Helpers/countDayLengthHelper';
 import {IAstroForecast} from 'Components/ForecastWeather/Models';
 import styles from 'Components/ForecastWeather/Styles/ForecastWeather.module.css';
 

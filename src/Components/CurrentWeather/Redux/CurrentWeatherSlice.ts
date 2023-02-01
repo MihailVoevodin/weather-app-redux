@@ -1,13 +1,16 @@
 import {CurrentWeatherService} from 'api/CurrentWeatherService';
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {AxiosResponse} from 'axios';
+import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import {ICurrentWeather} from 'Components/CurrentWeather/Models';
 
 export const loadCurrentWeather = createAsyncThunk('current/getCurrentWeather', async (city: string, {rejectWithValue, dispatch}) => {
     dispatch(toggleIsLoading());
     try {
-        const response = await CurrentWeatherService.getCurrentWeather(city);
+        const response: AxiosResponse = await CurrentWeatherService.getCurrentWeather(city);
+        const data: ICurrentWeather = response.data;
+
         dispatch(setInputValue(city));
-        dispatch(setCurrentWeather(response.data));
+        dispatch(setCurrentWeather(data));
         dispatch(deleteError());
         dispatch(toggleIsLoading());
     } catch (error) {
@@ -19,8 +22,9 @@ export const loadCurrentWeather = createAsyncThunk('current/getCurrentWeather', 
 
 export const loadDefaultCurrentWeather = createAsyncThunk('current/getDefaultCurrentWeather', async (_, {rejectWithValue, dispatch}) => {
     try {
-        const response = await CurrentWeatherService.getDefaultCurrentWeather();
-        dispatch(setCurrentWeather(response.data));
+        const response: AxiosResponse = await CurrentWeatherService.getDefaultCurrentWeather();
+        const data: ICurrentWeather = response.data;
+        dispatch(setCurrentWeather(data));
         dispatch(toggleIsLoading());
     } catch (error) {
         return rejectWithValue('error');
@@ -57,10 +61,10 @@ const CurrentWeatherSlice = createSlice({
     name: 'current',
     initialState: initialState,
     reducers: {
-        setInputValue(state, action) {
+        setInputValue(state, action: PayloadAction<string>) {
             state.inputCityValue = action.payload;
         },
-        setCurrentWeather(state, action) {
+        setCurrentWeather(state, action: PayloadAction<ICurrentWeather>) {
             state.currentWeather = action.payload;
         },
         toggleIsLoading(state) {
