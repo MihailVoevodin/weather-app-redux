@@ -1,10 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit';
 import CurrentWeatherSlice, {ICurrentWeatherState} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
-import ForecastWeatherSlice, {IForecastState} from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
+import ForecastWeatherSlice, {IForecastWeatherState} from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
 
 export interface IAppState {
     current: ICurrentWeatherState;
-    forecast: IForecastState;
+    forecast: IForecastWeatherState;
 }
 
 export const store = configureStore<IAppState>({
