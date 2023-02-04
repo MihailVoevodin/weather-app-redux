@@ -1,0 +1,15 @@
+{
+  "header": "Проверь погоду",
+  "searchPanelPlaceholder": "Введите город",
+  "errorMessage": "Город не найден",
+  "feelsLike": "Ощущается как",
+  "humidity": "Влажность",
+  "wind": "Скорость ветра",
+  "windSpeedUnits": "м/с",
+  "windDirection": "Напр. ветра",
+  "pressure": "Давление",
+  "pressureUnits": "мм рт. ст.",
+  "details": "Детали",
+  "astronomy": "Астрономия",
+  "hourlyForecast": "Почасовой прогноз"
+}

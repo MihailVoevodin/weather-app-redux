@@ -5,6 +5,7 @@ import {ForecastDetailsTabContent} from 'Components/ForecastWeather/Components/F
 import {ForecastHourlyTabContent} from 'Components/ForecastWeather/Components/ForecastHourlyTabContent';
 import {IForecast} from 'Components/ForecastWeather/Models';
 import 'Components/ForecastWeather/Styles/Forecast.css';
+import {useTranslation} from 'react-i18next';
 
 const {Panel} = Collapse;
 
@@ -19,17 +20,18 @@ interface IProps {
  * Компонент отображения тайтлов табов прогноза погоды.
  */
 const ForecastCollapseComp: React.FC<IProps> = ({forecastWeather}) => {
+    const {t} = useTranslation();
     const {day, astro, hour} = forecastWeather;
 
     return (
         <Collapse ghost>
-            <Panel header="Details" key="1">
+            <Panel header={t('details')} key="1">
                 <ForecastDetailsTabContent detailsForecastWeather={day} />
             </Panel>
-            <Panel header="Astronomy" key="2">
+            <Panel header={t('astronomy')} key="2">
                 <ForecastAstroTabContent astroForecastWeather={astro} />
             </Panel>
-            <Panel header="Hourly forecast" key="3">
+            <Panel header={t('hourlyForecast')} key="3">
                 <ForecastHourlyTabContent hourForecastWeather={hour} />
             </Panel>
         </Collapse>

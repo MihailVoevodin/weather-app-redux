@@ -1,5 +1,6 @@
 import {useAppDispatch, useAppSelector} from 'hooks';
 import React, {useEffect} from 'react';
+import {useTranslation} from 'react-i18next';
 import Spinner from 'Common/Components/Spinner';
 import {loadDefaultCurrentWeather} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
 import {getCurrentWeather, getIsLoading} from 'Components/CurrentWeather/Redux/selectors';
@@ -10,6 +11,7 @@ const moment = require('moment');
  * Компонент отображения текущей погоды.
  */
 const CurrentWeather: React.FC = () => {
+    const {t} = useTranslation();
     const dispatch = useAppDispatch();
     const {current, location} = useAppSelector(getCurrentWeather);
     const isLoading = useAppSelector(getIsLoading);
@@ -32,7 +34,9 @@ const CurrentWeather: React.FC = () => {
                             <div>
                                 <div className={styles.temp}>
                                     {current.temp_c} ℃
-                                    <span className={styles.tempFeelsLike}>feels like {Math.round(current.feelslike_c)} ℃</span>
+                                    <span className={styles.tempFeelsLike}>
+                                        {t('feelsLike')} {Math.round(current.feelslike_c)} ℃
+                                    </span>
                                 </div>
                                 <div className={styles.condition}>
                                     <img src={current.condition.icon} alt="condition icon" />
