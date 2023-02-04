@@ -1,7 +1,8 @@
 import {Input} from 'antd';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import React, {useState} from 'react';
-import {loadCurrentWeather} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
+import {loadCurrentWeather, setInputValue} from 'Components/CurrentWeather/Redux/CurrentWeatherSlice';
+import {getError, getErrorMessage} from 'Components/CurrentWeather/Redux/selectors';
 import {loadForecastWeather} from 'Components/ForecastWeather/Redux/ForecastWeatherSlice';
 import styles from 'Components/SearchPanel/Styles/SearchPanel.module.css';
 
@@ -12,11 +13,13 @@ const {Search} = Input;
  */
 export const SearchPanel: React.FC = () => {
     const dispatch = useAppDispatch();
-    const {error, errorMessage} = useAppSelector((state) => state.current);
+    const error = useAppSelector(getError);
+    const errorMessage = useAppSelector(getErrorMessage);
 
     const [city, setCity] = useState<string>('');
 
     const onSearch = (city: string) => {
+        void dispatch(setInputValue(city));
         void dispatch(loadCurrentWeather(city));
         void dispatch(loadForecastWeather(city));
         setCity('');

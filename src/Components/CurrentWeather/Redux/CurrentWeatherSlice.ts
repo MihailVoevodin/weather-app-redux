@@ -1,36 +1,32 @@
 import {CurrentWeatherService} from 'api/CurrentWeatherService';
-import {AxiosResponse} from 'axios';
 import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import {ICurrentWeather} from 'Components/CurrentWeather/Models';
 
-export const loadCurrentWeather = createAsyncThunk('current/getCurrentWeather', async (city: string, {rejectWithValue, dispatch}) => {
-    dispatch(toggleIsLoading());
-    try {
-        const response: AxiosResponse = await CurrentWeatherService.getCurrentWeather(city);
-        const data: ICurrentWeather = response.data;
+export const loadCurrentWeather = createAsyncThunk<ICurrentWeather, string, {rejectValue: string}>(
+    'current/getCurrentWeather',
+    async (city, {rejectWithValue}) => {
+        const response = await CurrentWeatherService.getCurrentWeather(city);
 
-        dispatch(setInputValue(city));
-        dispatch(setCurrentWeather(data));
-        dispatch(deleteError());
-        dispatch(toggleIsLoading());
-    } catch (error) {
-        dispatch(setError(rejectWithValue('error')));
-        dispatch(toggleIsLoading());
-    }
-    return;
-});
+        if (response.status !== 200) {
+            return rejectWithValue('Server Error!');
+        }
 
-export const loadDefaultCurrentWeather = createAsyncThunk('current/getDefaultCurrentWeather', async (_, {rejectWithValue, dispatch}) => {
-    try {
-        const response: AxiosResponse = await CurrentWeatherService.getDefaultCurrentWeather();
-        const data: ICurrentWeather = response.data;
-        dispatch(setCurrentWeather(data));
-        dispatch(toggleIsLoading());
-    } catch (error) {
-        return rejectWithValue('error');
+        return response.data;
     }
-    return;
-});
+);
+
+export const loadDefaultCurrentWeather = createAsyncThunk<ICurrentWeather, void, {rejectValue: string}>(
+    'current/getDefaultCurrentWeather',
+    async (_, {rejectWithValue}) => {
+        const response = await CurrentWeatherService.getDefaultCurrentWeather();
+
+        if (response.status !== 200) {
+            return rejectWithValue('Server Error!');
+        }
+
+        return response.data;
+    }
+);
 
 /**
  * Модель redux-ветки текущей погоды.
@@ -49,7 +45,7 @@ export interface ICurrentWeatherState {
 const initialState: ICurrentWeatherState = {
     inputCityValue: 'Москва',
     currentWeather: {},
-    isLoading: true,
+    isLoading: false,
     error: '',
     errorMessage: '',
 };
@@ -64,23 +60,38 @@ const CurrentWeatherSlice = createSlice({
         setInputValue(state, action: PayloadAction<string>) {
             state.inputCityValue = action.payload;
         },
-        setCurrentWeather(state, action: PayloadAction<ICurrentWeather>) {
-            state.currentWeather = action.payload;
-        },
-        toggleIsLoading(state) {
-            state.isLoading = !state.isLoading;
-        },
-        setError(state, action) {
-            state.error = action.payload.payload;
-            state.errorMessage = 'No matching location found';
-        },
-        deleteError(state) {
-            state.error = '';
-            state.errorMessage = '';
-        },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(loadDefaultCurrentWeather.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(loadDefaultCurrentWeather.rejected, (state) => {
+                state.error = 'error';
+                state.errorMessage = 'No matching location found';
+                state.isLoading = false;
+            })
+            .addCase(loadDefaultCurrentWeather.fulfilled, (state, action) => {
+                state.currentWeather = action.payload;
+                state.isLoading = false;
+            })
+            .addCase(loadCurrentWeather.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(loadCurrentWeather.rejected, (state) => {
+                state.error = 'error';
+                state.errorMessage = 'No matching location found';
+                state.isLoading = false;
+            })
+            .addCase(loadCurrentWeather.fulfilled, (state, action) => {
+                state.currentWeather = action.payload;
+                state.isLoading = !state.isLoading;
+                state.error = '';
+                state.errorMessage = '';
+            });
     },
 });
 
-export const {setInputValue, setCurrentWeather, toggleIsLoading, setError, deleteError} = CurrentWeatherSlice.actions;
+export const {setInputValue} = CurrentWeatherSlice.actions;
 
 export default CurrentWeatherSlice.reducer;

@@ -14,7 +14,7 @@ const CurrentWeather: React.FC = () => {
     const {current, location} = useAppSelector(getCurrentWeather);
     const isLoading = useAppSelector(getIsLoading);
     useEffect(() => {
-        void dispatch(loadDefaultCurrentWeather()); // TODO: поменять в апишке возвращаемые поля
+        void dispatch(loadDefaultCurrentWeather());
     }, [dispatch]);
 
     return (
