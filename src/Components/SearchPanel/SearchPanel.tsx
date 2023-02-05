@@ -29,7 +29,7 @@ export const SearchPanel: React.FC = () => {
 
     const nonLettersRegExp = new RegExp(/[^a-zа-яё]/i);
 
-    const searchPanelPlaceholder: string = t('searchPanelPlaceholder');
+    const searchPanelPlaceholder: string = t('searchPanel.searchPanelPlaceholder');
 
     const handleChangeInputValue = ({target}: React.ChangeEvent<HTMLInputElement>) => {
         setCity(target.value.replace(nonLettersRegExp, ''));
@@ -37,7 +37,7 @@ export const SearchPanel: React.FC = () => {
 
     return (
         <div className={styles.searchPanel}>
-            <h1 style={{color: 'white'}}>{t('header')}</h1>
+            <h1 style={{color: 'white'}}>{t('searchPanel.header')}</h1>
             <Search
                 className={styles.searchInput}
                 value={city}
@@ -47,7 +47,7 @@ export const SearchPanel: React.FC = () => {
                 onChange={handleChangeInputValue}
                 status={error}
             />
-            {errorMessage && <div className={styles.errorMessage}>{t('errorMessage')}</div>}
+            {errorMessage && <div className={styles.errorMessage}>{t('searchPanel.errorMessage')}</div>}
         </div>
     );
 };

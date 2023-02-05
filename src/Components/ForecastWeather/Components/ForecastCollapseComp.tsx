@@ -25,13 +25,13 @@ const ForecastCollapseComp: React.FC<IProps> = ({forecastWeather}) => {
 
     return (
         <Collapse ghost>
-            <Panel header={t('details')} key="1">
+            <Panel header={t('forecastWeather.details')} key="1">
                 <ForecastDetailsTabContent detailsForecastWeather={day} />
             </Panel>
-            <Panel header={t('astronomy')} key="2">
+            <Panel header={t('forecastWeather.astronomy')} key="2">
                 <ForecastAstroTabContent astroForecastWeather={astro} />
             </Panel>
-            <Panel header={t('hourlyForecast')} key="3">
+            <Panel header={t('forecastWeather.hourlyForecast')} key="3">
                 <ForecastHourlyTabContent hourForecastWeather={hour} />
             </Panel>
         </Collapse>

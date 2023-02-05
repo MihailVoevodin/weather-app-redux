@@ -1,15 +1,42 @@
 {
-  "header": "Check the Weather",
-  "searchPanelPlaceholder": "Input city",
-  "errorMessage": "No matching location found",
-  "feelsLike": "feels like",
-  "humidity": "Humidity",
-  "wind": "Wind speed",
-  "windSpeedUnits": "m/s",
-  "windDirection": "Wind dir",
-  "pressure": "Pressure",
-  "pressureUnits": "mmHg",
-  "details": "Details",
-  "astronomy": "Astronomy",
-  "hourlyForecast": "Hourly forecast"
+  "searchPanel": {
+    "header": "Check the Weather",
+    "searchPanelPlaceholder": "Input city",
+    "errorMessage": "No matching location found"
+  },
+  "currentWeather": {
+    "feelsLike": "feels like"
+  },
+  "currentWeatherDetails": {
+    "humidity": "Humidity",
+    "wind": "Wind speed",
+    "windDirection": "Wind dir",
+    "pressure": "Pressure",
+    "pressureUnits": "mmHg"
+  },
+  "forecastWeather": {
+    "details": "Details",
+    "astronomy": "Astronomy",
+    "hourlyForecast": "Hourly forecast",
+    "Details": {
+      "avgTemperature": "Avg temperature",
+      "maxWindSpeed": "Max wind speed",
+      "totalPrecipitation": "Total precipitation",
+      "avgVisibility": "Avg visibility",
+      "avgHumidity": "Avg humidity",
+      "chanceOfRain": "Chance of rain",
+      "chanceOfSnow": "Chance of snow"
+    },
+    "Astro": {
+      "sunrise": "Sunrise",
+      "sunset": "Sunset",
+      "dayLength": "Day length"
+    }
+  },
+  "weatherUnits": {
+    "m/s": "m/s",
+    "mmHg": "mmHg",
+    "mm": "mm",
+    "km": "km"
+  }
 }

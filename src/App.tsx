@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {useTranslation} from 'react-i18next';
 import {CurrentWeather} from 'Components/CurrentWeather/Page/CurrentWeather';
-import {WeatherDetails} from 'Components/CurrentWeather/WeatherDetails/Page/WeatherDetails';
+import {CurrentWeatherDetails} from 'Components/CurrentWeather/WeatherDetails/Page/CurrentWeatherDetails';
 import {ForecastWeather} from 'Components/ForecastWeather/Page/ForecastWeather';
 import {SearchPanel} from 'Components/SearchPanel/SearchPanel';
 
@@ -22,7 +22,7 @@ const App: React.FC = () => {
             <SearchPanel />
             <div className="CurrentWeather">
                 <CurrentWeather />
-                <WeatherDetails />
+                <CurrentWeatherDetails />
             </div>
             <div className="ForecastWeather">
                 <ForecastWeather />

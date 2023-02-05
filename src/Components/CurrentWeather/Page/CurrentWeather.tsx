@@ -35,7 +35,7 @@ const CurrentWeather: React.FC = () => {
                                 <div className={styles.temp}>
                                     {current.temp_c} ℃
                                     <span className={styles.tempFeelsLike}>
-                                        {t('feelsLike')} {Math.round(current.feelslike_c)} ℃
+                                        {t('currentWeather.feelsLike')} {Math.round(current.feelslike_c)} ℃
                                     </span>
                                 </div>
                                 <div className={styles.condition}>

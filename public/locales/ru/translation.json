@@ -1,15 +1,43 @@
 {
-  "header": "Проверь погоду",
-  "searchPanelPlaceholder": "Введите город",
-  "errorMessage": "Город не найден",
-  "feelsLike": "Ощущается как",
-  "humidity": "Влажность",
-  "wind": "Скорость ветра",
-  "windSpeedUnits": "м/с",
-  "windDirection": "Напр. ветра",
-  "pressure": "Давление",
-  "pressureUnits": "мм рт. ст.",
-  "details": "Детали",
-  "astronomy": "Астрономия",
-  "hourlyForecast": "Почасовой прогноз"
+  "searchPanel": {
+    "header": "Проверь погоду",
+    "searchPanelPlaceholder": "Введите город",
+    "errorMessage": "Город не найден"
+  },
+  "currentWeather": {
+    "feelsLike": "Ощущается как"
+  },
+  "currentWeatherDetails": {
+    "humidity": "Влажность",
+    "wind": "Скорость ветра",
+    "windSpeedUnits": "м/с",
+    "windDirection": "Напр. ветра",
+    "pressure": "Давление",
+    "pressureUnits": "мм рт. ст."
+  },
+  "forecastWeather": {
+    "details": "Детали",
+    "astronomy": "Астрономия",
+    "hourlyForecast": "Почасовой прогноз",
+    "Details": {
+      "avgTemperature": "Ср. температура",
+      "maxWindSpeed": "Макс. скор. ветра",
+      "totalPrecipitation": "Кол-во осадков",
+      "avgVisibility": "Ср. видимость",
+      "avgHumidity": "Ср. влажность",
+      "chanceOfRain": "Шанс дождя",
+      "chanceOfSnow": "Шанс снега"
+    },
+    "Astro": {
+      "sunrise": "Восход",
+      "sunset": "Закат",
+      "dayLength": "Световой день"
+    }
+  },
+  "weatherUnits": {
+    "m/s": "м/с",
+    "mmHg": "мм рт. ст.",
+    "mm": "мм",
+    "km": "км"
+  }
 }
