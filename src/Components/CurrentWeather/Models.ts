@@ -30,7 +30,7 @@ interface ICondition {
 /**
  * Интефейс локации текущей погоды.
  */
-interface ILocation {
+export interface ILocation {
     name: string;
     country: string;
     localtime: string;
