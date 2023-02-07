@@ -1,3 +1,6 @@
+/**
+ * Функиця расчета времени в секундах.
+ */
 const countSecondsInTime = (time: string) => {
     const [hours, minutes]: Array<string> = time.split(' ')[0].split(':');
 
@@ -8,6 +11,9 @@ const countSecondsInTime = (time: string) => {
     }
 };
 
+/**
+ * Функция расчета продолжительности дня.
+ */
 export const countDayLength = (sunrise: string, sunset: string) => {
     const sunriseSeconds = countSecondsInTime(sunrise);
     const sunsetSeconds = countSecondsInTime(sunset);

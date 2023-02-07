@@ -4,6 +4,9 @@ import GBFlag from 'Assets/Flags/GBFlag.png';
 import RussiaFlag from 'Assets/Flags/RussiaFlag.png';
 import styles from 'Components/Translation/Translation.module.css';
 
+/**
+ * Компонент кнопок смены языка.
+ */
 export const Translation: React.FC = () => {
     const [language, setLanguage] = useState<string>('en');
     const {i18n} = useTranslation();

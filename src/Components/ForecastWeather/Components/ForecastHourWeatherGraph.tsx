@@ -10,6 +10,9 @@ interface IProps {
     hourForecastWeather: IHourForecast[];
 }
 
+/**
+ * Компонент вывода графика почасовой погоды.
+ */
 const ForecastHourlyWeatherGraph: React.FC<IProps> = ({hourForecastWeather}) => {
     const formatHourWeather = hourForecastWeather.map((hour) => {
         return {

@@ -7,7 +7,7 @@ import {getCurrentWeather, getIsLoading} from 'Components/CurrentWeather/Redux/s
 import styles from 'Components/CurrentWeather/WeatherDetails/Styles/WeatherDetails.module.css';
 
 /**
- * Компонент отображения текущей погоды.
+ * Компонент отображения деталей текущей погоды.
  */
 export const CurrentWeatherDetails: React.FC = () => {
     const {t} = useTranslation();
